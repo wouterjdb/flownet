@@ -16,15 +16,21 @@ flownet:
 ert:
   static_include_files: ./Egg_Model
   realizations:
-    num_realizations: 5
+    num_realizations: 4
     required_success_percent: 80
     max_runtime: 600
   queue:
     system: LOCAL
     name: mr
-    max_running: 1
+    max_running: 4
   ensemble_weights:
     - 1
+  analysis:
+      metric:   "[RMSE]"
+      quantity: "[WOPR:PROD]"
+      start:    "2011-06-15"
+      end:      "2018-12-05"
+      outfile:  "analysis_metrics_iteration"
 
 model_parameters:
   permeability:
