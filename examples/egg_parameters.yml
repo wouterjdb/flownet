@@ -1,0 +1,84 @@
+name: EGG
+
+flownet:
+  data_source:
+    eclipse_case: ./Egg_Model/EGG_MODEL_ECL
+  cell_length: 10
+  additional_flow_nodes: 0
+  additional_node_candidates: 1
+  hull_factor: 1.2
+  random_seed: 999
+  perforation_handling_strategy: bottom_point #bottom_point #multiple
+  fast_pyscal: False
+  training_set_fraction: 1 # Fraction of observations (from 0 to 1) to use as training data
+  fault_tolerance: 0.1
+  
+ert:
+  static_include_files: ./Egg_Model
+  realizations:
+    num_realizations: 5
+    required_success_percent: 80
+    max_runtime: 600
+  queue:
+    system: LOCAL
+    name: mr
+    max_running: 1
+  ensemble_weights:
+    - 1
+
+model_parameters:
+  permeability:
+    min: 1
+    max: 5000
+  porosity: 
+    min: 0.05
+    max: 0.5
+  bulkvolume_mult:
+    mean: 0.17
+    max: 0.4    
+  relative_permeability:
+    scheme: global
+    swirr:
+      min: 0.05
+      max: 0.15
+    swl:
+      min: 0.05
+      max: 0.15
+    swcr:
+      min: 0.15
+      max: 0.25
+    sorw:
+      min: 0.1
+      max: 0.2
+    krwend:
+      min: 0.55
+      max: 0.65
+    krowend:
+      min: 0.7
+      max: 0.8
+    nw:
+      min: 2.5
+      max: 3.5
+    now:
+      min: 3.5
+      max: 4.5
+  equil:
+    datum_depth: 4000
+    datum_pressure:
+      min: 400
+      max: 400.1
+    owc_depth:
+      min: 5000
+      max: 5000.1
+  rock_compressibility:
+    reference_pressure: 400
+    min: 0
+    max: 0
+  aquifer:
+    scheme: individual
+    fraction: 0.25
+    delta_depth: 1000
+    size_in_bulkvolumes:
+      min: 1
+      max: 2
+      loguniform: True
