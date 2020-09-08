@@ -3,6 +3,7 @@ from typing import Union, List, Optional, Dict
 
 import numpy as np
 import pandas as pd
+from scipy.stats import mode
 from scipy.optimize import minimize
 from configsuite import ConfigSuite
 
@@ -21,6 +22,69 @@ from ..parameters import (
     FaultTransmissibility,
 )
 from ..data import FlowData
+
+
+def _from_regions_to_flow_tubes(
+    network: NetworkModel,
+    field_data: FlowData,
+    ti2ci: pd.DataFrame,
+    name: str,
+) -> List[int]:
+    """
+        The function loops through each cell in a flow tube, and checks what 'name' region the
+        corresponding position (cell midpoint) in the data source simulation model has. If different
+        cells in one flow tube are located in different 'name' regions of the original model, the mode is used.
+        If flow tubes are entirely outside of the data source simulation grid,
+        the 'name' region closest to the midpoint of the flow tube is used.
+
+    Args:
+        network: FlowNet network instance
+        field_data: FlowData class with information from simulation model data source
+        ti2ci: A dataframe with index equal to tube model index, and one column which equals cell indices.
+        name: The same of the region parameter
+
+    Returns:
+        A list with values for 'name' region for each tube in the FlowNet model
+    """
+    df_regions = []
+
+    x_mid = network.grid[["x0", "x1", "x2", "x3", "x4", "x5", "x6", "x7"]].mean(axis=1)
+    y_mid = network.grid[["y0", "y1", "y2", "y3", "y4", "y5", "y6", "y7"]].mean(axis=1)
+    z_mid = network.grid[["z0", "z1", "z2", "z3", "z4", "z5", "z6", "z7"]].mean(axis=1)
+
+    for i in network.grid.model.unique():
+        tube_regions = []
+        for j in ti2ci[ti2ci.index == i].values:
+            ijk = field_data.grid.find_cell(x_mid[j], y_mid[j], z_mid[j])
+            if ijk is not None and field_data.grid.active(ijk=ijk):
+                tube_regions.append(field_data.init(name)[ijk])
+        if tube_regions != []:
+            df_regions.append(mode(tube_regions).mode.tolist()[0])
+        else:
+            tube_midpoint = (
+                network.df_entity_connections.iloc[i][
+                    ["xstart", "ystart", "zstart"]
+                ].values
+                + network.df_entity_connections.iloc[i][["xend", "yend", "zend"]].values
+            ) / 2
+            dist_to_cell = []
+            for k in range(1, field_data.grid.get_num_active()):
+                cell_midpoint = field_data.grid.get_xyz(active_index=k)
+                dist_to_cell.append(
+                    np.sqrt(
+                        np.square(tube_midpoint[0] - cell_midpoint[0])
+                        + np.square(tube_midpoint[1] - cell_midpoint[1])
+                        + np.square(tube_midpoint[2] - cell_midpoint[2])
+                    )
+                )
+            df_regions.append(
+                field_data.init(name)[
+                    field_data.grid.get_ijk(
+                        active_index=dist_to_cell.index(min(dist_to_cell))
+                    )
+                ]
+            )
+    return df_regions
 
 
 def _find_training_set_fraction(
@@ -292,15 +356,14 @@ def run_flownet_history_matching(
         df_satnum = pd.DataFrame(
             range(1, len(network.grid.model.unique()) + 1), columns=["SATNUM"]
         )
+    elif config.model_parameters.relative_permeability.scheme == "regions_from_sim":
+        df_satnum = pd.DataFrame(
+            _from_regions_to_flow_tubes(network, field_data, ti2ci, "SATNUM"),
+            columns=["SATNUM"],
+        )
     elif config.model_parameters.relative_permeability.scheme == "global":
         df_satnum = pd.DataFrame(
             [1] * len(network.grid.model.unique()), columns=["SATNUM"]
-        )
-    else:
-        raise ValueError(
-            f"The relative permeability scheme "
-            f"'{config.model_parameters.relative_permeability.scheme}' is not valid.\n"
-            f"Valid options are 'global' or 'individual'."
         )
 
     # Create a pandas dataframe with all parameter definition for each individual tube
@@ -344,15 +407,14 @@ def run_flownet_history_matching(
         df_eqlnum = pd.DataFrame(
             range(1, len(network.grid.model.unique()) + 1), columns=["EQLNUM"]
         )
+    elif config.model_parameters.equil.scheme == "regions_from_sim":
+        df_eqlnum = pd.DataFrame(
+            _from_regions_to_flow_tubes(network, field_data, ti2ci, "EQLNUM"),
+            columns=["EQLNUM"],
+        )
     elif config.model_parameters.equil.scheme == "global":
         df_eqlnum = pd.DataFrame(
             [1] * len(network.grid.model.unique()), columns=["EQLNUM"]
-        )
-    else:
-        raise ValueError(
-            f"The equilibration scheme "
-            f"'{config.model_parameters.relative_permeability.scheme}' is not valid.\n"
-            f"Valid options are 'global' or 'individual'."
         )
 
     # Create a pandas dataframe with all parameter definition for each individual tube
