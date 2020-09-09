@@ -48,14 +48,12 @@ def _from_regions_to_flow_tubes(
     """
     df_regions = []
 
-    x_mid = network.grid[["x0", "x1", "x2", "x3", "x4", "x5", "x6", "x7"]].mean(axis=1)
-    y_mid = network.grid[["y0", "y1", "y2", "y3", "y4", "y5", "y6", "y7"]].mean(axis=1)
-    z_mid = network.grid[["z0", "z1", "z2", "z3", "z4", "z5", "z6", "z7"]].mean(axis=1)
+    xyz_mid = network.cell_midpoints
 
     for i in network.grid.model.unique():
         tube_regions = []
         for j in ti2ci[ti2ci.index == i].values:
-            ijk = field_data.grid.find_cell(x_mid[j], y_mid[j], z_mid[j])
+            ijk = field_data.grid.find_cell(xyz_mid[0][j], xyz_mid[1][j], xyz_mid[2][j])
             if ijk is not None and field_data.grid.active(ijk=ijk):
                 tube_regions.append(field_data.init(name)[ijk])
         if tube_regions != []:
@@ -422,21 +420,45 @@ def run_flownet_history_matching(
         columns=["parameter", "minimum", "maximum", "loguniform", "eqlnum"]
     )
 
-    equil_config = config.model_parameters.equil
+    defined_eqlnum_regions = []
+    if config.model_parameters.equil.scheme == "regions_from_sim":
+        equil_config_eqlnum = config.model_parameters.equil.eqlnum_region
+        for reg in equil_config_eqlnum:
+            defined_eqlnum_regions.append(reg.id)
+    else:
+        equil_config_eqlnum = [config.model_parameters.equil.eqlnum_region[0]]
+        defined_eqlnum_regions.append(None)
+
     for i in df_eqlnum["EQLNUM"].unique():
+        if i in defined_eqlnum_regions:
+            idx = defined_eqlnum_regions.index(i)
+        else:
+            idx = defined_eqlnum_regions.index(None)
         info = [
             ["datum_pressure", "owc_depth", "gwc_depth", "goc_depth"],
             [
-                equil_config.datum_pressure.min,
-                None if equil_config.owc_depth is None else equil_config.owc_depth.min,
-                None if equil_config.gwc_depth is None else equil_config.gwc_depth.min,
-                None if equil_config.goc_depth is None else equil_config.goc_depth.min,
+                equil_config_eqlnum[idx].datum_pressure.min,
+                None
+                if equil_config_eqlnum[idx].owc_depth is None
+                else equil_config_eqlnum[idx].owc_depth.min,
+                None
+                if equil_config_eqlnum[idx].gwc_depth is None
+                else equil_config_eqlnum[idx].gwc_depth.min,
+                None
+                if equil_config_eqlnum[idx].goc_depth is None
+                else equil_config_eqlnum[idx].goc_depth.min,
             ],
             [
-                equil_config.datum_pressure.max,
-                None if equil_config.owc_depth is None else equil_config.owc_depth.max,
-                None if equil_config.gwc_depth is None else equil_config.gwc_depth.max,
-                None if equil_config.goc_depth is None else equil_config.goc_depth.max,
+                equil_config_eqlnum[idx].datum_pressure.max,
+                None
+                if equil_config_eqlnum[idx].owc_depth is None
+                else equil_config_eqlnum[idx].owc_depth.max,
+                None
+                if equil_config_eqlnum[idx].gwc_depth is None
+                else equil_config_eqlnum[idx].gwc_depth.max,
+                None
+                if equil_config_eqlnum[idx].goc_depth is None
+                else equil_config_eqlnum[idx].goc_depth.max,
             ],
             [False] * 4,
             [i] * 4,
@@ -517,6 +539,19 @@ def run_flownet_history_matching(
 
     # ******************************************************************************
 
+    datum_depths = []
+    if config.model_parameters.equil.scheme == "regions_from_sim":
+        for reg in equil_config_eqlnum:
+            datum_depths.append(reg.datum_depth)
+    elif config.model_parameters.equil.scheme == "individual":
+        datum_depths = [equil_config_eqlnum[0].datum_depth] * len(
+            df_eqlnum["EQLNUM"].unique()
+        )
+    else:
+        datum_depths = [equil_config_eqlnum[0].datum_depth]
+
+    datum_depths = list(datum_depths)
+
     parameters = [
         PorvPoroTrans(porv_poro_trans_dist_values, ti2ci, network),
         RelativePermeability(
@@ -531,7 +566,7 @@ def run_flownet_history_matching(
             network,
             ti2ci,
             df_eqlnum,
-            equil_config.datum_depth,
+            datum_depths,
             config.flownet.pvt.rsvd,
         ),
     ]
