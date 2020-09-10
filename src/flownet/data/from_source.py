@@ -36,3 +36,4 @@ class FromSource(ABC):
         raise NotImplementedError(
             "The well_log property is required to be implemented in a FromSource class."
         )
+

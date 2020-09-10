@@ -395,6 +395,7 @@ class FlowData(FromSource):
         """dataframe with all well log"""
         return self._well_logs()
 
+    @property
     def grid(self) -> EclGrid:
         """the simulation grid with properties"""
         return self._grid
