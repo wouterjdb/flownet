@@ -20,6 +20,7 @@ class NetworkModel:
         area: float,
         fault_planes: Optional[pd.DataFrame] = None,
         fault_tolerance: float = 1.0e-5,
+        append_inactive: bool = False,
     ):
         """
         Creates a network of one dimensional models.
@@ -37,6 +38,8 @@ class NetworkModel:
                 as possible to ensure a high resolution fault plane generation. However, this might lead
                 to a very slow fault tracing process therefore one might want to increase the tolerance.
                 Always check that the resulting lower resolution fault plane still is what you expected.
+            append_inactive: Deciding wheather or not an inactive cell will be added between the
+                one dimensional models
 
         Start and end coordinates in df and cell_length should have the same
         unit. The area should have the same unit (but squared) as the
@@ -51,6 +54,7 @@ class NetworkModel:
         self._nncs: List[Tuple[int, int]] = self._calculate_nncs()
 
         self._initial_cell_volumes = np.ones((len(self.connection_midpoints), 1))
+        self._append_inactive = append_inactive
 
         self._fault_planes: Optional[pd.DataFrame] = None
         self._faults: Optional[Dict] = None
@@ -486,7 +490,9 @@ class NetworkModel:
         for index, row in self._df_entity_connections.iterrows():
             start = row[["xstart", "ystart", "zstart"]]
             end = row[["xend", "yend", "zend"]]
-            model = OneDimensionalModel(start, end, self._cell_length, self._area)
+            model = OneDimensionalModel(
+                start, end, self._cell_length, self._area, self._append_inactive
+            )
             new_df = model.df_coord
             new_df["model"] = index
             df_grid = df_grid.append(new_df, sort=False)
@@ -515,7 +521,8 @@ class NetworkModel:
 
     def bulk_volume_per_flownet_cell_based_on_tube_length(self) -> np.ndarray:
         """Generate bulk volume per flownet grid cell based on the total length
-        of each tube in the FlowNet and the convex hull on the FlowNet network.
+        of the active cells in each tube in the FlowNet and the convex hull on
+        the FlowNet network.
 
         Args:
             network: FlowNet network instance.
@@ -526,8 +533,13 @@ class NetworkModel:
         return (
             self.total_bulkvolume
             * self.grid["cell_length"].values
-            / self.grid["cell_length"].sum()
+            / self.grid.loc[self.grid["ACTNUM"] == 1, "cell_length"].sum()
         )
+
+    @property
+    def append_inactive(self) -> bool:
+        """Is there an inactive cell between the one dimensional models"""
+        return self._append_inactive
 
     @property
     def faults(self) -> Optional[Dict[Any, Any]]:

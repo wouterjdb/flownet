@@ -421,10 +421,14 @@ class FlowData(FromSource):
         properties_per_cell = pd.DataFrame(
             pd.DataFrame(data=network.grid.index, index=network.grid.model).index
         )
-        cells_per_tube = properties_per_cell.reset_index().groupby(["model"]).size()
+        active_cells_per_tube = properties_per_cell.reset_index().groupby(
+            ["model"]
+        ).size() - (network.append_inactive * 1)
+        
+        #length of tube reduced by one when inactive cells are added between 1D models
         cell_volumes = np.array(
             [
-                tube_volumes[i] / cells_per_tube[i]
+                tube_volumes[i] / active_cells_per_tube[i]
                 for i in properties_per_cell["model"].values
             ]
         )
