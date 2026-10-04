@@ -90,7 +90,7 @@ def deck2dfs(
     welspecs = {}
     date = start_date  # DATE column will always be there, but can contain NaN/None
     for idx, kword in enumerate(deck):  # pylint: disable=too-many-nested-blocks
-        if kword.name == ("DATES", "START"):
+        if kword.name in ("DATES", "START"):
             for rec in kword:
                 date = parse_opmio_date_rec(rec)
                 logger.info("Parsing at date %s", str(date))
