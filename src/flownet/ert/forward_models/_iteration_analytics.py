@@ -175,9 +175,9 @@ def accuracy_metric(
     if metric == "MSE":
         score = mean_squared_error(data_reference, data_test)
     elif metric == "RMSE":
-        score = mean_squared_error(data_reference, data_test, squared=False)
+        score = np.sqrt(mean_squared_error(data_reference, data_test))
     elif metric == "NRMSE":
-        score = mean_squared_error(data_reference, data_test, squared=False) / (
+        score = np.sqrt(mean_squared_error(data_reference, data_test)) / (
             np.amax(data_reference) - np.amin(data_reference)
         )
     elif metric == "MAE":

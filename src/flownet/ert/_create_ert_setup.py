@@ -247,6 +247,11 @@ def create_ert_setup(  # pylint: disable=too-many-arguments
     )
 
     shutil.copyfile(
+        _MODULE_FOLDER / "forward_models" / "FLOW_SIMULATION",
+        output_folder / "FLOW_SIMULATION",
+    )
+
+    shutil.copyfile(
         _MODULE_FOLDER / ".." / "static" / "SAVE_ITERATION_PARAMETERS_WORKFLOW",
         output_folder / "SAVE_ITERATION_PARAMETERS_WORKFLOW",
     )
