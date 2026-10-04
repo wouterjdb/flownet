@@ -32,6 +32,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: 🧪 Create virtual environment
+        run: |
+          python -m venv "$RUNNER_TEMP/flownet-venv"
+          echo "$RUNNER_TEMP/flownet-venv/bin" >> "$GITHUB_PATH"
+
       - name: 📦 Install non-python dependencies
         run: sudo bash ./apt_install.sh
 
