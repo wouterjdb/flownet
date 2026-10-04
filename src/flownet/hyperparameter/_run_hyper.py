@@ -82,7 +82,7 @@ def flownet_ahm_run(x: list, args: argparse.Namespace):
             yaml.safe_load(args.config.read_text()), []
         )
 
-        for (parameter, param_value) in zip(parameters, x):
+        for parameter, param_value in zip(parameters, x):
             mlflow.log_param(key=parameter, value=param_value)
 
         run_flownet_history_matching(config, run_args)

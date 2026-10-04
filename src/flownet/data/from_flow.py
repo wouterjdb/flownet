@@ -361,9 +361,9 @@ class FlowData(FromSource):
             filtered on layer_id if not None.
         """
         if self._layers:
-            (k_min, k_max) = tuple(map(operator.sub, self._layers[layer_id], (1, 1)))
+            k_min, k_max = tuple(map(operator.sub, self._layers[layer_id], (1, 1)))
         else:
-            (k_min, k_max) = (0, self._grid.nz)
+            k_min, k_max = (0, self._grid.nz)
 
         cells = [
             cell for cell in self._grid.cells(active=True) if (k_min <= cell.k <= k_max)

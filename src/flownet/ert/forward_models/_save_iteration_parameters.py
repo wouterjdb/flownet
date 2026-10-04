@@ -62,7 +62,7 @@ def save_iteration_parameters():
 
     print("Saving ERT parameters to file...", end=" ")
 
-    (iteration, runpath_list) = get_last_iteration(args.runpath)
+    iteration, runpath_list = get_last_iteration(args.runpath)
     realizations_dict = {}
 
     with concurrent.futures.ProcessPoolExecutor() as executor:

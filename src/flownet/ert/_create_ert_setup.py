@@ -15,7 +15,6 @@ from ._create_synthetic_refcase import create_synthetic_refcase
 from ..parameters import Parameter
 from ..realization import Schedule
 
-
 _TEMPLATE_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.PackageLoader("flownet", "templates"),
     undefined=jinja2.StrictUndefined,

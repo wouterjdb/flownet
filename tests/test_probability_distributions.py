@@ -7,7 +7,6 @@ import pandas as pd
 from flownet.parameters._base_parameter import parameter_probability_distribution_class
 from flownet.parameters.probability_distributions import ProbabilityDistribution
 
-
 DATA = {
     "parameter": [
         "P1",
