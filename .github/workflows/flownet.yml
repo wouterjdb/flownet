@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.11"]
-        testdata-model: [ "norne"]
+        testdata-model: [ "egg", "norne"]
     env:
       PYTHONWARNINGS: default
     steps:
@@ -71,12 +71,8 @@ jobs:
         run: |
           pytest --cov=flownet --cov-fail-under=29 ./tests
 
-      - name: 🍳 Prepare Egg model for smoke test
-        run: |
-          INPUT_MODEL_FOLDER=./flownet-testdata/egg/input_model
-          for f in "$INPUT_MODEL_FOLDER"/*.tar.gz; do tar -zxvf "$f" -C "$INPUT_MODEL_FOLDER"; done
-
       - name: 🚀 Run minimal Egg history-match smoke test
+        if: matrix.testdata-model == 'egg'
         timeout-minutes: 10
         run: |
           cd ./flownet-testdata/egg
