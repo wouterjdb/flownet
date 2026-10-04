@@ -261,12 +261,12 @@ def _get_regional_distribution(
         df_dist_values[f"maximum_{parameter}_regional"] = parameter_config_regional.max
         df_dist_values[f"mean_{parameter}_regional"] = parameter_config_regional.mean
         df_dist_values[f"base_{parameter}_regional"] = parameter_config_regional.base
-        df_dist_values[
-            f"stddev_{parameter}_regional"
-        ] = parameter_config_regional.stddev
-        df_dist_values[
-            f"distribution_{parameter}_regional"
-        ] = parameter_config_regional.distribution
+        df_dist_values[f"stddev_{parameter}_regional"] = (
+            parameter_config_regional.stddev
+        )
+        df_dist_values[f"distribution_{parameter}_regional"] = (
+            parameter_config_regional.distribution
+        )
     return ci2ri, df_dist_values
 
 
@@ -830,15 +830,21 @@ def run_flownet_history_matching(
             info.append(
                 [
                     getattr(equil_config_eqlnum[idx].datum_pressure, keyword),
-                    None
-                    if equil_config_eqlnum[idx].owc_depth is None
-                    else getattr(equil_config_eqlnum[idx].owc_depth, keyword),
-                    None
-                    if equil_config_eqlnum[idx].gwc_depth is None
-                    else getattr(equil_config_eqlnum[idx].gwc_depth, keyword),
-                    None
-                    if equil_config_eqlnum[idx].goc_depth is None
-                    else getattr(equil_config_eqlnum[idx].goc_depth, keyword),
+                    (
+                        None
+                        if equil_config_eqlnum[idx].owc_depth is None
+                        else getattr(equil_config_eqlnum[idx].owc_depth, keyword)
+                    ),
+                    (
+                        None
+                        if equil_config_eqlnum[idx].gwc_depth is None
+                        else getattr(equil_config_eqlnum[idx].gwc_depth, keyword)
+                    ),
+                    (
+                        None
+                        if equil_config_eqlnum[idx].goc_depth is None
+                        else getattr(equil_config_eqlnum[idx].goc_depth, keyword)
+                    ),
                 ]
             )
         info.append([i] * 4)
@@ -862,7 +868,10 @@ def run_flownet_history_matching(
         for param in ["bulkvolume_mult", "porosity", "permeability"]
         if getattr(config.model_parameters, param + "_regional_scheme") != "individual"
     ]
-    (ci2ri, regional_porv_poro_trans_dist_values,) = _get_regional_distribution(
+    (
+        ci2ri,
+        regional_porv_poro_trans_dist_values,
+    ) = _get_regional_distribution(
         regional_parameters,
         config.model_parameters,
         network,

@@ -266,23 +266,29 @@ class NetworkModel:
 
         df_concat = (
             df_concat.apply(
-                lambda x: np.rint(
-                    np.array((x - minx) * 1000 / (maxx - minx), dtype=np.double)
+                lambda x: (
+                    np.rint(
+                        np.array((x - minx) * 1000 / (maxx - minx), dtype=np.double)
+                    )
+                    if x.name in ["x"]
+                    else x
                 )
-                if x.name in ["x"]
-                else x
             )
             .apply(
-                lambda y: np.rint(
-                    np.array((y - miny) * 1000 / (maxy - miny), dtype=np.double)
+                lambda y: (
+                    np.rint(
+                        np.array((y - miny) * 1000 / (maxy - miny), dtype=np.double)
+                    )
+                    if y.name in ["y"]
+                    else y
                 )
-                if y.name in ["y"]
-                else y
             )
             .apply(
-                lambda z: np.rint(np.array((z - minz) * 1000 / zdist, dtype=np.double))
-                if z.name in ["z"]
-                else z
+                lambda z: (
+                    np.rint(np.array((z - minz) * 1000 / zdist, dtype=np.double))
+                    if z.name in ["z"]
+                    else z
+                )
             )
             .astype({"x": int, "y": int, "z": int})
         )
@@ -430,7 +436,7 @@ class NetworkModel:
 
             # Loop through all triangles inside of the bounding box and perform ray tracing
             cells_in_fault = []
-            for (triangle, fault_name) in list(
+            for triangle, fault_name in list(
                 zip(triangles_in_bounding_box, fault_names_in_bounding_box)
             ):
 

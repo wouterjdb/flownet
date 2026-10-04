@@ -242,10 +242,11 @@ def _generate_connections(
                 well_pairs[vertex_a, vertex_b] = [flow_node_a, flow_node_b]
                 well_pairs[vertex_b, vertex_a] = [flow_node_b, flow_node_a]
 
-                dist_matrix[vertex_a, vertex_b] = dist_matrix[
-                    vertex_b, vertex_a
-                ] = distance.euclidean(
-                    triangulation.points[flow_node_a], triangulation.points[flow_node_b]
+                dist_matrix[vertex_a, vertex_b] = dist_matrix[vertex_b, vertex_a] = (
+                    distance.euclidean(
+                        triangulation.points[flow_node_a],
+                        triangulation.points[flow_node_b],
+                    )
                 )
 
                 if are_points_from_same_existing_entity(

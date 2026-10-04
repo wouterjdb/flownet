@@ -300,7 +300,7 @@ def make_dataframe_simulation_data(
         runpath_list = glob.glob(path)
         iteration = "latest"
     elif mode == "ahm":
-        (i, runpath_list) = get_last_iteration(path)
+        i, runpath_list = get_last_iteration(path)
         iteration = str(i)
     else:
         raise ValueError(
@@ -396,7 +396,7 @@ def save_iteration_analytics():
     vector_keys = list(args.quantity.replace("[", "").replace("]", "").split(","))
 
     # Load ensemble of FlowNet
-    (df_sim, iteration, nb_real) = make_dataframe_simulation_data(
+    df_sim, iteration, nb_real = make_dataframe_simulation_data(
         args.mode,
         args.runpath,
         args.eclbase,

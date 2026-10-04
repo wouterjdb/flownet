@@ -4,7 +4,6 @@ import pytest
 
 from flownet.config_parser import parse_config
 
-
 CONFIG_FOLDER = pathlib.Path(__file__).resolve().parent / "configs"
 
 

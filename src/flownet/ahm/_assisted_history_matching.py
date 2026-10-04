@@ -140,15 +140,21 @@ class AssistedHistoryMatching:
 
                 print(
                     f"{random_var.name}".ljust(17),
-                    f"{random_var.minimum:16.8f}"
-                    if random_var.minimum is not None
-                    else "      None      ",
+                    (
+                        f"{random_var.minimum:16.8f}"
+                        if random_var.minimum is not None
+                        else "      None      "
+                    ),
                     f"{random_var.mean:16.8f}",
-                    f"{random_var.stddev:16.8f}"
-                    if random_var.stddev is not None
-                    else "      None      ",
-                    f"{random_var.maximum:16.8f}"
-                    if random_var.maximum is not None
-                    else "      None      ",
+                    (
+                        f"{random_var.stddev:16.8f}"
+                        if random_var.stddev is not None
+                        else "      None      "
+                    ),
+                    (
+                        f"{random_var.maximum:16.8f}"
+                        if random_var.maximum is not None
+                        else "      None      "
+                    ),
                 )
         print("")

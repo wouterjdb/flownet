@@ -57,6 +57,7 @@ WSEG_RENAMER: Dict[str, str] = {
     "SEG2": "SEGMENT2",
 }
 
+
 # pylint: disable=too-many-locals,too-many-branches,too-many-statements
 def deck2dfs(
     deck: "opm.io.Deck",

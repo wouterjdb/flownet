@@ -45,7 +45,10 @@ def create_webviz(output_folder: pathlib.Path, start_webviz: bool = True):
         runpath = data_file.parents[2]
         arrow_folder = runpath / "share" / "results" / "unsmry"
         arrow_file = arrow_folder / f"{data_file.stem}.arrow"
-        if arrow_file.is_file() and arrow_file.stat().st_mtime >= unsmry_file.stat().st_mtime:
+        if (
+            arrow_file.is_file()
+            and arrow_file.stat().st_mtime >= unsmry_file.stat().st_mtime
+        ):
             continue
 
         arrow_folder.mkdir(parents=True, exist_ok=True)
@@ -67,7 +70,9 @@ def create_webviz(output_folder: pathlib.Path, start_webviz: bool = True):
         pathlib.Path(sys.executable).with_name("webviz")
     )
     if not pathlib.Path(webviz).is_file():
-        raise FileNotFoundError("webviz must be available in the active Python environment")
+        raise FileNotFoundError(
+            "webviz must be available in the active Python environment"
+        )
 
     subprocess.run(
         [

@@ -55,11 +55,9 @@ class Schedule:
             self._inj_control_mode = "RATE"
             self._case_name = "none"
         else:
-            raise ValueError(
-                "Cannot initiate Schedule object. \
+            raise ValueError("Cannot initiate Schedule object. \
                 Either supply all arguments to fully initiate a Schedule object \
-                or nothing to initiate an empty Schedule object."
-            )
+                or nothing to initiate an empty Schedule object.")
 
     def _create_schedule(self):
         """
@@ -188,9 +186,9 @@ class Schedule:
                                 k1=0,
                                 k2=0,
                                 rw=0.22,
-                                status="OPEN"
-                                if well_connection_state["OPEN"]
-                                else "SHUT",
+                                status=(
+                                    "OPEN" if well_connection_state["OPEN"] else "SHUT"
+                                ),
                             )
                         )
 
@@ -224,12 +222,10 @@ class Schedule:
                     )
                 )
             except IndexError:
-                print(
-                    f"""The schedule could not be created for well '{well_name}'.\n
+                print(f"""The schedule could not be created for well '{well_name}'.\n
                 This most likely is a result of this well not having any connections.\n
                 Try adding more additional nodes, relax angle constraint for the Delaunay triangles,\n
-                maximum distance and/or convex hull."""
-                )
+                maximum distance and/or convex hull.""")
                 raise
 
     def _calculate_wconhist(self):

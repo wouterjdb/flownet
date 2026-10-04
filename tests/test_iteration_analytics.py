@@ -63,12 +63,10 @@ def test_normalize_data() -> None:
 
 
 def test_normalize_ert_parameters() -> None:
-    assert normalize_ert_parameters(
-        {"FLOWNET_PARAMETERS": {"0_perm": 1.25}}
-    ) == {"0_perm": 1.25}
-    assert normalize_ert_parameters({"0_perm": {"value": 1.25}}) == {
+    assert normalize_ert_parameters({"FLOWNET_PARAMETERS": {"0_perm": 1.25}}) == {
         "0_perm": 1.25
     }
+    assert normalize_ert_parameters({"0_perm": {"value": 1.25}}) == {"0_perm": 1.25}
 
 
 def test_calculation_accuracy_metric() -> None:
