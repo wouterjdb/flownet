@@ -46,7 +46,7 @@ setup(
     name="flownet",
     install_requires=REQUIREMENTS,
     tests_require=TEST_REQUIRES,
-    python_requires=">=3.8,<3.12",
+    python_requires=">=3.11,<3.12",
     extras_require={"tests": TEST_REQUIRES},
     description="Simplified training of reservoir simulation models",
     long_description=LONG_DESCRIPTION,
