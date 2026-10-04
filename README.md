@@ -52,9 +52,15 @@ If you want to install and try out the latest unreleased code you can do
 ```bash
 git clone git@github.com:equinor/flownet.git
 cd flownet
-pip install -e .
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e .
 ```
 Omit the `-e` flag if you want a standard installation.
+
+Python 3.8-3.11 is supported with this codebase's `ecl` dependency. For tests,
+install with `python -m pip install -e '.[tests]'` instead.
 
 > :warning: Do you want to run FlowNet through the LSF queue?
 To be able to have the ERT process, that will be called by FlowNet,

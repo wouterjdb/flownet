@@ -7,7 +7,10 @@ import shutil
 from typing import Dict, Tuple
 import pandas as pd
 
-from flownet.ert.forward_models.utils import get_last_iteration
+from flownet.ert.forward_models.utils import (
+    get_last_iteration,
+    normalize_ert_parameters,
+)
 
 
 def _load_parameters(runpath: str) -> Tuple[int, Dict]:
@@ -27,7 +30,7 @@ def _load_parameters(runpath: str) -> Tuple[int, Dict]:
         (pathlib.Path(runpath) / "parameters.json").read_text(encoding="utf8")
     )
 
-    return realization, parameters["FLOWNET_PARAMETERS"]
+    return realization, normalize_ert_parameters(parameters)
 
 
 def save_iteration_parameters():
