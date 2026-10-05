@@ -76,12 +76,29 @@ jobs:
         run: |
           pytest --cov=flownet --cov-fail-under=29 ./tests
 
-      - name: 🚀 Run minimal Egg history-match smoke test
+      - name: 🚀 Run reduced Egg integration examples
         if: matrix.testdata-model == 'egg'
-        timeout-minutes: 10
+        timeout-minutes: 15
+        env:
+          MLFLOW_ALLOW_FILE_STORE: "true"
         run: |
           cd ./flownet-testdata/egg
           flownet ahm ./config/assisted_history_matching.yml ./ci_ahm_run --update-config ./ci_config/assisted_history_matching.yml
+          flownet ahm ./config/assisted_history_matching.yml ./ci_ahm_restart --update-config ./ci_config/assisted_history_matching.yml --restart-folder ./ci_ahm_run
+          flownet pred ./config/prediction.yml ./ci_pred_run ./ci_ahm_run --update-config ./ci_config/prediction.yml
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          config_path = Path("config/hyperparameter.yml")
+          config = yaml.safe_load(config_path.read_text(encoding="utf8"))
+          config["flownet"]["hyperopt"]["n_runs"] = 1
+          config["model_parameters"]["relative_permeability"]["scheme"] = "global"
+          Path("config/ci_hyperparameter.yml").write_text(
+              yaml.safe_dump(config, sort_keys=False), encoding="utf8"
+          )
+          PY
+          flownet hyperparam ./config/ci_hyperparameter.yml ./ci_hyperparameter_run --update-config ./ci_config/assisted_history_matching.yml
 
       - name: 📚 Build documentation
         run: |

@@ -34,7 +34,7 @@ def create_webviz(output_folder: pathlib.Path, start_webviz: bool = True):
         raise FileNotFoundError("res2arrow must be available on PATH to build Webviz")
 
     for data_file in output_folder.glob(
-        "output/runpath/realization-*/iter-*/eclipse/model/*.DATA"
+        "output/runpath/realization-*/*/eclipse/model/*.DATA"
     ):
         unsmry_file = data_file.with_suffix(".UNSMRY")
         if not unsmry_file.is_file():
