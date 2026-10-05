@@ -1991,6 +1991,7 @@ def parse_config(
 
     available_region_schemes = ["global", "individual", "regions_from_sim"]
     config = suite.snapshot
+    field_data: Optional[FlowData] = None
     if (
         config.model_parameters.relative_permeability.interpolate
         and config.model_parameters.relative_permeability.swcr_add_to_swl
@@ -2038,6 +2039,8 @@ def parse_config(
                 f"Valid options are {available_region_schemes}"
             )
         if scheme == "regions_from_sim":
+            if field_data is None:
+                raise ValueError("Simulation data is required for regions_from_sim.")
             if flow_region_name is not None:
                 reg_param_sim_model = getattr(
                     getattr(config.model_parameters, reg_param),

@@ -368,6 +368,7 @@ class NetworkModel:
 
         """
         dict_fault_keyword: Dict[str, List[int]] = {}
+        fault_names = []
         if self._fault_planes is not None:
             fault_names = self._fault_planes["NAME"].unique().tolist()
         if not fault_names:

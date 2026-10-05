@@ -335,7 +335,7 @@ def make_dataframe_simulation_data(
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(prog=("Save iteration analytics to a file."))
+    parser = argparse.ArgumentParser(prog="Save iteration analytics to a file.")
     parser.add_argument("mode", type=str, help="Mode: ahm or pred")
     parser.add_argument(
         "reference_simulation", type=str, help="Path to the reference simulation case"

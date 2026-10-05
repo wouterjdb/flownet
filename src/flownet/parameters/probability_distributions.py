@@ -125,11 +125,6 @@ class UniformDistribution(ProbabilityDistribution):
                 "It is not possible to update the mean of the uniform distribution without "
                 "providing either a new minimum value or a new maximum value at the same time."
             )
-        elif mode is not None:
-            raise ValueError(
-                "The mode in a uniform distribution is either all possible values or non-existing. "
-                "You can choose yourself, but don't try to update it!"
-            )
         elif stddev is not None:
             raise ValueError(
                 "It is currently not possible to update the uniform distribution using the standard deviation"
@@ -256,7 +251,6 @@ class LogUniformDistribution(ProbabilityDistribution):
         min_val: float = None,
         max_val: float = None,
     ) -> float:
-        # pylint: disable=no-self-use
         """
         Find the distribution min or max for a loguniform distribution, assuming only
         one of these and the mean are given
@@ -271,7 +265,7 @@ class LogUniformDistribution(ProbabilityDistribution):
 
         """
         # pylint: disable=cell-var-from-loop
-        if min_val is None:
+        if min_val is None and max_val is not None:
             result = minimize(
                 lambda x: (mean_val - ((max_val - x) / np.log(max_val / x))) ** 2,
                 x0=mean_val,
@@ -279,7 +273,7 @@ class LogUniformDistribution(ProbabilityDistribution):
                 method="L-BFGS-B",
                 bounds=[(1e-9, mean_val)],
             ).x[0]
-        if max_val is None:
+        elif max_val is None and min_val is not None:
             result = minimize(
                 lambda x: (mean_val - ((x - min_val) / np.log(x / min_val))) ** 2,
                 x0=mean_val,
@@ -287,6 +281,8 @@ class LogUniformDistribution(ProbabilityDistribution):
                 method="L-BFGS-B",
                 bounds=[(mean_val, None)],
             ).x[0]
+        else:
+            raise ValueError("Exactly one of min_val or max_val must be None.")
         return result
 
 

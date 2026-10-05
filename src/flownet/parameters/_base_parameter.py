@@ -14,7 +14,6 @@ from .probability_distributions import (
     TruncatedNormalDistribution,
     Constant,
 )
-
 _TEMPLATE_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.PackageLoader("flownet", "templates"),
     undefined=jinja2.StrictUndefined,
@@ -143,7 +142,6 @@ class Parameter(abc.ABC):
         """Setter for the Parameter standard deviation samples."""
         self._stddev_values = values
 
-    # pylint: disable=no-self-use
     def get_dims(self) -> Union[None, Dict[str, int]]:
         """In case a parameter requires updates in runspec dimensions, a get_dims
         function will need to be implemented.

@@ -121,14 +121,10 @@ def _split_additional_flow_nodes(
         else:
             num_bounding_boxes = xyz.shape[0]
         volume = sum(
-            [
-                (
-                    (xyz[i, 1] - xyz[i, 0])
-                    * (xyz[i, 3] - xyz[i, 2])
-                    * (xyz[i, 5] - xyz[i, 4])
-                )
-                for i in range(0, num_bounding_boxes)
-            ]
+            (xyz[i, 1] - xyz[i, 0])
+            * (xyz[i, 3] - xyz[i, 2])
+            * (xyz[i, 5] - xyz[i, 4])
+            for i in range(num_bounding_boxes)
         )
         volumes.append(volume)
 
@@ -327,12 +323,12 @@ def _check_for_none_connectivity_amongst_entities(conn_matrix: np.ndarray):
     connections = []
     no_cons = []
     con_less_count = 0
-    for node_a, _ in enumerate(conn_matrix):
+    for node_a, row in enumerate(conn_matrix):
         if sum(conn_matrix[:, node_a]) == 0:
             con_less_count += 1
             no_cons.append(node_a)
-        for node_b in range(node_a, len(conn_matrix)):
-            if conn_matrix[node_a][node_b] == 1:
+        for node_b, connected in enumerate(row[node_a:], start=node_a):
+            if connected == 1:
                 connections.append((node_a, node_b))
     print(f"{con_less_count} not connected")
     print("no cons:", no_cons)

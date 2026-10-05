@@ -66,7 +66,6 @@ def create_observation_file(
     training_set_fraction: float = 1,
     yaml: bool = False,
 ):
-    # pylint: disable=no-self-use
     """
     Creates an ERT observation file from a given schedule instance.
     It has not yet been decided if schedule is to be given at creation or should be part
@@ -181,12 +180,12 @@ def create_ert_setup(  # pylint: disable=too-many-arguments
     output_folder = pathlib.Path(args.output_folder)
     os.makedirs(output_folder, exist_ok=True)
 
+    mode = "pred" if prediction_setup else "ahm"
+    path_ref_sim = pathlib.Path(".").resolve()
     if prediction_setup:
-        mode = "pred"
         if config.ert.ref_sim:
             path_ref_sim = pathlib.Path(config.ert.ref_sim).resolve()
-    elif not prediction_setup:
-        mode = "ahm"
+    else:
         # Derive absolute path to reference simulation case
         if config.flownet.data_source.simulation.input_case:
             path_ref_sim = pathlib.Path(
