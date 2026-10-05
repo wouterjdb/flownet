@@ -54,9 +54,9 @@ class UniformDistribution(ProbabilityDistribution):
 
     def __init__(
         self,
-        minimum: float = None,
-        maximum: float = None,
-        mean: float = None,
+        minimum: Optional[float] = None,
+        maximum: Optional[float] = None,
+        mean: Optional[float] = None,
     ):
         super().__init__("UNIFORM")
         self.update_distribution(minimum=minimum, mean=mean, maximum=maximum)
@@ -208,12 +208,14 @@ class LogUniformDistribution(ProbabilityDistribution):
         elif minimum is None and mean is not None and maximum is not None:
             self.mean = mean
             self.maximum = maximum
+            assert self.maximum is not None
             self.minimum = self._find_dist_minmax(
                 mean_val=self.mean, min_val=None, max_val=self.maximum
             )
         elif maximum is None and mean is not None and minimum is not None:
             self.mean = mean
             self.minimum = minimum
+            assert self.minimum is not None
             self.maximum = self._find_dist_minmax(
                 min_val=self.minimum, mean_val=self.mean, max_val=None
             )
@@ -248,8 +250,8 @@ class LogUniformDistribution(ProbabilityDistribution):
     def _find_dist_minmax(
         self,
         mean_val: float,
-        min_val: float = None,
-        max_val: float = None,
+        min_val: Optional[float] = None,
+        max_val: Optional[float] = None,
     ) -> float:
         """
         Find the distribution min or max for a loguniform distribution, assuming only

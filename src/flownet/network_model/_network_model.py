@@ -20,7 +20,7 @@ class NetworkModel:
         area: float,
         fault_planes: Optional[pd.DataFrame] = None,
         fault_tolerance: float = 1.0e-5,
-        volume_layering: List[float] = None,
+        volume_layering: Optional[List[float]] = None,
     ):
         """
         Creates a network of one dimensional models.
@@ -53,7 +53,7 @@ class NetworkModel:
 
         self._initial_cell_volumes = np.ones((len(self.connection_midpoints), 1))
         if volume_layering is None:
-            self._volume_layering = []
+            self._volume_layering: List[float] = []
         else:
             self._volume_layering = list(volume_layering)
 
@@ -368,9 +368,10 @@ class NetworkModel:
 
         """
         dict_fault_keyword: Dict[str, List[int]] = {}
-        fault_names = []
-        if self._fault_planes is not None:
-            fault_names = self._fault_planes["NAME"].unique().tolist()
+        fault_planes = self._fault_planes
+        if fault_planes is None:
+            return None
+        fault_names = fault_planes["NAME"].unique().tolist()
         if not fault_names:
             return None
 
@@ -381,7 +382,7 @@ class NetworkModel:
         all_triangles = np.empty(shape=[0, 9])
 
         for fault_name in fault_names:
-            data = self._fault_planes.loc[self._fault_planes["NAME"] == fault_name][
+            data = fault_planes.loc[fault_planes["NAME"] == fault_name][
                 ["X", "Y", "Z"]
             ].values
 

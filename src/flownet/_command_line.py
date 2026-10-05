@@ -31,8 +31,6 @@ def create_webviz(output_folder: pathlib.Path, start_webviz: bool = True):
         pathlib.Path(sys.executable).with_name("res2arrow")
     )
     if not pathlib.Path(res2arrow).is_file():
-        res2arrow = None
-    if res2arrow is None:
         raise FileNotFoundError("res2arrow must be available on PATH to build Webviz")
 
     for data_file in output_folder.glob(
