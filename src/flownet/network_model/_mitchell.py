@@ -54,6 +54,12 @@ def mitchell_best_candidate(
     # Read list of coordinate tuples and convert to 1D-numpy arrays
     x, y, z = (np.asarray(t) for t in zip(*perforations))
 
+    if mitchell_mode not in ("normal", "fast"):
+        raise ValueError(f"Unsupported Mitchell mode: {mitchell_mode}")
+    x_candidate = np.empty(0)
+    y_candidate = np.empty(0)
+    z_candidate = np.empty(0)
+
     # Number of real wells
     num_points = len(x)
 

@@ -73,7 +73,7 @@ def make_dataframe_simulation_data(
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(prog=("Save ensemble predictions to CSV file."))
+    parser = argparse.ArgumentParser(prog="Save ensemble predictions to CSV file.")
     parser.add_argument("mode", type=str, help="Mode: ahm or pred")
     parser.add_argument("runpath", type=str, help="Path to the ERT runpath.")
     parser.add_argument(

@@ -249,14 +249,14 @@ def deck2dfs(
     if "KEYWORD_IDX" in wsegvalv_df.columns:
         wsegvalv_df.drop(["KEYWORD_IDX"], axis=1, inplace=True)
 
-    return dict(
-        COMPDAT=compdat_df,
-        COMPSEGS=compsegs_df,
-        WELSEGS=welsegs_df,
-        WSEGSICD=wsegsicd_df,
-        WSEGAICD=wsegaicd_df,
-        WSEGVALV=wsegvalv_df,
-    )
+    return {
+        "COMPDAT": compdat_df,
+        "COMPSEGS": compsegs_df,
+        "WELSEGS": welsegs_df,
+        "WSEGSICD": wsegsicd_df,
+        "WSEGAICD": wsegaicd_df,
+        "WSEGVALV": wsegvalv_df,
+    }
 
 
 def postprocess():

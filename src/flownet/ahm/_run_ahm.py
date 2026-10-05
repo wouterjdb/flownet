@@ -113,18 +113,17 @@ def _from_regions_to_flow_tubes(
         candidate_tubes = set(network.grid.model.unique()) - set(tube_outside)
         while tube_outside:
             i = tube_outside.pop(0)
-            first = True
+            if not candidate_tubes:
+                continue
+            shortest_index = next(iter(candidate_tubes))
+            shortest_dist = np.inf
             for j in candidate_tubes:
                 dist_to_tube = np.sqrt(
                     np.square(tube_midpoints[i][0] - tube_midpoints[j][0])
                     + np.square(tube_midpoints[i][1] - tube_midpoints[j][1])
                     + np.square(tube_midpoints[i][2] - tube_midpoints[j][2])
                 )
-                if first:
-                    first = False
-                    shortest_dist = dist_to_tube
-                    shortest_index = j
-                elif dist_to_tube < shortest_dist:
+                if dist_to_tube < shortest_dist:
                     shortest_dist = dist_to_tube
                     shortest_index = j
 
@@ -802,6 +801,10 @@ def run_flownet_history_matching(
         df_eqlnum = pd.DataFrame(
             [1] * len(network.grid.model.unique()), columns=["EQLNUM"]
         )
+    else:
+        raise ValueError(
+            f"Unsupported equilibration scheme: {config.model_parameters.equil.scheme}"
+        )
 
     # total number of regions in the field data
     eqlnum_max = field_data.init("EQLNUM").get_max()  # type: ignore
@@ -905,6 +908,8 @@ def run_flownet_history_matching(
             )
         elif aquifer_config.scheme == "global":
             df_aquid = pd.DataFrame([1] * len(network.aquifers_xyz), columns=["AQUID"])
+        else:
+            raise ValueError(f"Unsupported aquifer scheme: {aquifer_config.scheme}")
 
         # Create a pandas dataframe with all parameter definition for each individual tube
         aquifer_dist_values = pd.DataFrame(columns=column_names_probdist + ["aquid"])

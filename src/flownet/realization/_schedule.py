@@ -520,7 +520,7 @@ class Schedule:
             Maximum number of connections with the grid in a single well in the schedule
 
         """
-        return max([self.num_connections(well) for well in self.get_wells()], default=0)
+        return max((self.num_connections(well) for well in self.get_wells()), default=0)
 
     def get_compdat(self, well_name: str = None) -> List[COMPDAT]:
         """
