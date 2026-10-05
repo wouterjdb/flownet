@@ -2,7 +2,6 @@
 set -euo pipefail
 
 repo_root="$(git rev-parse --show-toplevel)"
-cd "$repo_root"
 
 if [[ -n "${VIRTUAL_ENV:-}" ]]; then
     PATH="$VIRTUAL_ENV/bin:$PATH"
@@ -12,6 +11,11 @@ elif [[ -x "$repo_root/.venv/bin/black" ]]; then
     PATH="$repo_root/.venv/bin:$PATH"
 fi
 export PATH
+
+check_dir="$(mktemp -d "${TMPDIR:-/tmp}/flownet-pre-push.XXXXXX")"
+trap 'rm -rf "$check_dir"' EXIT
+git -C "$repo_root" archive HEAD | tar -x -C "$check_dir"
+cd "$check_dir"
 
 for tool in black pylint mypy; do
     if ! command -v "$tool" >/dev/null 2>&1; then
