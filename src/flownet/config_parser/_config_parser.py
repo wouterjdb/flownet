@@ -18,6 +18,14 @@ from ._config_transformations import (
 from ..data.from_flow import FlowData
 
 
+def _normalize_analysis_entries(config: Dict) -> Dict:
+    """Accept a single analysis mapping as shorthand for a one-entry list."""
+    ert_config = config.get("ert")
+    if isinstance(ert_config, dict) and isinstance(ert_config.get("analysis"), dict):
+        ert_config["analysis"] = [ert_config["analysis"]]
+    return config
+
+
 # Small workaround while waiting for https://github.com/equinor/configsuite/pull/157
 # to be merged and released in upstream ConfigSuite:
 def create_schema_without_arguments() -> Dict:
@@ -1976,6 +1984,7 @@ def parse_config(
             yaml.safe_load(base_config.read_text()),
             yaml.safe_load(update_config.read_text()),
         )
+    input_config = _normalize_analysis_entries(input_config)
 
     suite = ConfigSuite(
         input_config,
