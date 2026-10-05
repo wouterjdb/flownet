@@ -121,9 +121,7 @@ def _split_additional_flow_nodes(
         else:
             num_bounding_boxes = xyz.shape[0]
         volume = sum(
-            (xyz[i, 1] - xyz[i, 0])
-            * (xyz[i, 3] - xyz[i, 2])
-            * (xyz[i, 5] - xyz[i, 4])
+            (xyz[i, 1] - xyz[i, 0]) * (xyz[i, 3] - xyz[i, 2]) * (xyz[i, 5] - xyz[i, 4])
             for i in range(num_bounding_boxes)
         )
         volumes.append(volume)

@@ -14,6 +14,7 @@ from .probability_distributions import (
     TruncatedNormalDistribution,
     Constant,
 )
+
 _TEMPLATE_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.PackageLoader("flownet", "templates"),
     undefined=jinja2.StrictUndefined,
