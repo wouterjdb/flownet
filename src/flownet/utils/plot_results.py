@@ -166,7 +166,7 @@ def plot(
             markersize="5",
         )
 
-    plt.ylim([plot_settings["ymin"], plot_settings["ymax"] / plot_settings["scale"]])
+    plt.ylim((plot_settings["ymin"], plot_settings["ymax"] / plot_settings["scale"]))
     plt.xlabel("date")
     if plot_settings["units"] != "":
         plt.ylabel(vector + " [" + plot_settings["units"] + "]")

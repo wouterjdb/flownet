@@ -33,9 +33,9 @@ class Schedule:
 
     def __init__(
         self,
-        network: NetworkModel = None,
+        network: Optional[NetworkModel] = None,
         df_production_data: Optional[pd.DataFrame] = None,
-        config: ConfigSuite.snapshot = None,
+        config: Optional[ConfigSuite.snapshot] = None,
     ):
         self._schedule_items: List = []
         self._prod_control_mode: str
@@ -395,8 +395,8 @@ class Schedule:
         self,
         dates: Optional[Union[List[datetime.date], datetime.date]] = None,
         kw_class: Optional[Union[Keyword, str]] = None,
-        well_name: str = None,
-        ignore_nan: str = None,
+        well_name: Optional[str] = None,
+        ignore_nan: Optional[str] = None,
     ) -> List[Keyword]:
         """
         Returns a list of all keywords at given dates and/or of a
@@ -522,7 +522,7 @@ class Schedule:
         """
         return max((self.num_connections(well) for well in self.get_wells()), default=0)
 
-    def get_compdat(self, well_name: str = None) -> List[COMPDAT]:
+    def get_compdat(self, well_name: Optional[str] = None) -> List[COMPDAT]:
         """
         Function to retrieve all COMPDAT entries defined for a particular well.
 
