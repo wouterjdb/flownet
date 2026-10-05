@@ -103,7 +103,7 @@ def _from_regions_to_flow_tubes(
             if ijk is not None and field_data.grid.active(ijk=ijk):
                 tube_regions.append(field_data.init(region_name)[ijk])
         if tube_regions:
-            df_regions.append(mode(tube_regions).mode.tolist()[0])
+            df_regions.append(np.asarray(mode(tube_regions).mode).item())
         else:
             df_regions.append(None)
             tube_outside.append(i)
