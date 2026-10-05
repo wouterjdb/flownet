@@ -119,7 +119,7 @@ class AssistedHistoryMatching:
 
         # pylint: disable=protected-access
         print(
-            f"Degrees of freedom:     {sum([len(parameter._random_variables) for parameter in self._parameters]):>20}"
+            f"Degrees of freedom:     {sum(len(parameter._random_variables) for parameter in self._parameters):>20}"
         )
         print(
             f"Number of observations: {self._schedule.get_nr_observations(self._training_set_fraction):>20}"
