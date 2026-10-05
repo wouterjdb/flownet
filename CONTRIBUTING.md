@@ -20,7 +20,7 @@ pre-commit install
 pre-commit install --hook-type pre-push
 ```
 
-The commit hook applies Black to changed files. The pre-push hook runs the same repository-wide Black check, Pylint, and mypy commands as CI.
+The commit hook applies Black to changed files. The pre-push hook checks the committed tree being pushed with the same repository-wide Black, Pylint, and mypy commands as CI.
 
 ## Pull Request Process
 
