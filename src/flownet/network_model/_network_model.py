@@ -485,7 +485,7 @@ class NetworkModel:
         Returns:
             DataFrame of all corner-points needed to generate the grid.
         """
-        df_grid = pd.DataFrame()
+        grid_frames = []
 
         for index, row in self._df_entity_connections.iterrows():
             start = row[["xstart", "ystart", "zstart"]]
@@ -493,8 +493,11 @@ class NetworkModel:
             model = OneDimensionalModel(start, end, self._cell_length, self._area)
             new_df = model.df_coord
             new_df["model"] = index
-            df_grid = df_grid.append(new_df, sort=False)
+            grid_frames.append(new_df)
 
+        df_grid = (
+            pd.concat(grid_frames, ignore_index=True) if grid_frames else pd.DataFrame()
+        )
         df_grid.reset_index(inplace=True, drop=True)
 
         df_grid["z_mean"] = df_grid[

@@ -16,11 +16,22 @@ on:
 
 jobs:
   FlowNet:
-    runs-on: ubuntu-24.04
+    runs-on: ${{ matrix.ubuntu-version }}
     strategy:
       matrix:
-        python-version: ["3.11"]
-        testdata-model: [ "egg", "norne"]
+        include:
+          - python-version: "3.12"
+            ubuntu-version: ubuntu-24.04
+            testdata-model: egg
+          - python-version: "3.12"
+            ubuntu-version: ubuntu-24.04
+            testdata-model: norne
+          - python-version: "3.14"
+            ubuntu-version: ubuntu-26.04
+            testdata-model: egg
+          - python-version: "3.14"
+            ubuntu-version: ubuntu-26.04
+            testdata-model: norne
     env:
       PYTHONWARNINGS: default
     steps:
@@ -127,9 +138,33 @@ jobs:
           Path("ci_config/ci_prediction.yml").write_text(
               yaml.safe_dump(prediction, sort_keys=False), encoding="utf8"
           )
+
+          ahm_update = {
+            "flownet": {
+              "additional_flow_nodes": [20, 40],
+              "additional_node_candidates": 100,
+              "max_distance_fraction": 0.05,
+              "constraining": {"kriging": {"enabled": False}},
+            },
+            "ert": {
+              "realizations": {
+                "num_realizations": 2,
+                "required_success_percent": 40,
+                "max_runtime": 180,
+              },
+              "queue": {"max_running": 2},
+              "ensemble_weights": [1],
+            },
+            "model_parameters": {
+              "relative_permeability": {"scheme": "global"}
+            },
+          }
+          Path("ci_config/ci_assisted_history_matching.yml").write_text(
+            yaml.safe_dump(ahm_update, sort_keys=False), encoding="utf8"
+          )
           PY
-          flownet ahm ./config/ci_assisted_history_matching.yml ./ci_ahm_run --update-config ./ci_config/assisted_history_matching.yml
-          flownet ahm ./config/ci_assisted_history_matching.yml ./ci_ahm_restart --update-config ./ci_config/assisted_history_matching.yml --restart-folder ./ci_ahm_run
+          flownet ahm ./config/ci_assisted_history_matching.yml ./ci_ahm_run --update-config ./ci_config/ci_assisted_history_matching.yml
+          flownet ahm ./config/ci_assisted_history_matching.yml ./ci_ahm_restart --update-config ./ci_config/ci_assisted_history_matching.yml --restart-folder ./ci_ahm_run
           flownet pred ./config/prediction.yml ./ci_pred_run ./ci_ahm_run --update-config ./ci_config/ci_prediction.yml
 
       - name: 📚 Build documentation
@@ -139,17 +174,17 @@ jobs:
           popd
 
       - name: 🚢 Build and deploy Python package
-        if: github.event_name == 'release' && matrix.python-version == '3.11'
+        if: github.event_name == 'release' && matrix.python-version == '3.12'
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.pypi_flownet_token }}
         run: |
-          python -m pip install --upgrade setuptools wheel twine
+          python -m pip install --upgrade setuptools wheel setuptools-scm twine
           python setup.py bdist_wheel
           twine upload dist/*
 
       - name: 📚 Update GitHub pages
-        if: github.event_name != 'schedule' && github.ref == 'refs/heads/master' && matrix.python-version == '3.11'
+        if: github.event_name != 'schedule' && github.ref == 'refs/heads/master' && matrix.python-version == '3.12'
         run: |
           cp -R ./docs/_build ../_build
           git config --local user.email "flownet-github-action"

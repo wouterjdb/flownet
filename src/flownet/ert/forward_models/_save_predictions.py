@@ -57,7 +57,7 @@ def make_dataframe_simulation_data(
     n_realization = 0
 
     # Load all simulation results for the required vector keys
-    df_sim = pd.DataFrame()
+    simulation_dataframes = []
     for _, eclsum in realizations_dict.items():
         if eclsum and eclsum.dates[-1] >= end_date:
             df_realization = eclsum.pandas_frame(
@@ -66,8 +66,12 @@ def make_dataframe_simulation_data(
             df_realization["DATE"] = eclsum.dates
             df_realization["REALIZATION"] = n_realization
 
-            df_sim = df_sim.append(df_realization)
+            simulation_dataframes.append(df_realization)
             n_realization += 1
+
+    df_sim = (
+        pd.concat(simulation_dataframes) if simulation_dataframes else pd.DataFrame()
+    )
 
     return df_sim, iteration
 

@@ -9,20 +9,20 @@ import logging
 from typing import Dict, List, Optional, Union
 
 import pandas as pd
-from ecl2df.common import (
+from res2df.common import (
     merge_zones,
     parse_opmio_date_rec,
     parse_opmio_deckrecord,
     parse_opmio_tstep_rec,
     write_dframe_stdout_file,
 )
-from ecl2df.eclfiles import EclFiles
-from ecl2df.grid import merge_initvectors
+from res2df.grid import merge_initvectors
+from res2df.resdatafiles import ResdataFiles
 
 try:
     import opm.io.deck  # pylint: disable=unused-import
 except ImportError:
-    # Allow parts of ecl2df to work without OPM:
+    # Allow parts of res2df to work without OPM:
     pass
 
 
@@ -431,7 +431,7 @@ def applywelopen(compdat_df: pd.DataFrame, welopen_df: pd.DataFrame) -> pd.DataF
             row["C2"] is not None and row["C2"]
         ) > 0:
             raise ValueError(
-                "Lumped connections are not supported by ecl2df in a WELOPEN keyword. "
+                "Lumped connections are not supported by res2df in a WELOPEN keyword. "
                 f"\n{str(row)} "
             )
 
@@ -453,7 +453,7 @@ def applywelopen(compdat_df: pd.DataFrame, welopen_df: pd.DataFrame) -> pd.DataF
         new_state["KEYWORD_IDX"] = row["KEYWORD_IDX"]
         new_state["DATE"] = row["DATE"]
 
-        compdat_df = compdat_df.append(new_state)
+        compdat_df = pd.concat([compdat_df, new_state])
 
     if not compdat_df.empty:
         compdat_df = (
@@ -493,14 +493,14 @@ def compdat_main(args):
     """Entry-point for module, for command line utility"""
     if args.verbose:
         logging.basicConfig(level=logging.INFO)
-    eclfiles = EclFiles(args.DATAFILE)
+    eclfiles = ResdataFiles(args.DATAFILE)
     compdat_df = df(eclfiles, initvectors=args.initvectors)
     if compdat_df.empty:
         logger.warning("Empty COMPDAT data being written to disk!")
     write_dframe_stdout_file(compdat_df, args.output, index=False, caller_logger=logger)
 
 
-def df(eclfiles: EclFiles, initvectors: Optional[List[str]] = None) -> pd.DataFrame:
+def df(eclfiles: ResdataFiles, initvectors: Optional[List[str]] = None) -> pd.DataFrame:
     """Main function for Python API users
 
     Supports only COMPDAT information for now. Will
@@ -509,7 +509,7 @@ def df(eclfiles: EclFiles, initvectors: Optional[List[str]] = None) -> pd.DataFr
     Returns:
         pd.Dataframe with one row pr cell to well connection
     """
-    compdat_df = deck2dfs(eclfiles.get_ecldeck())["COMPDAT"]
+    compdat_df = deck2dfs(eclfiles.get_deck())["COMPDAT"]
     compdat_df = unrolldf(compdat_df)
 
     if initvectors:
