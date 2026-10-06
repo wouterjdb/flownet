@@ -26,13 +26,3 @@ repos:
     hooks:
     - id: black
       stages: [pre-commit]
-
-  - repo: local
-    hooks:
-    - id: ci-lint-type-checks
-      name: Run CI Black, Pylint, and mypy checks
-      entry: bash scripts/pre-push-checks.sh
-      language: system
-      pass_filenames: false
-      always_run: true
-      stages: [pre-push]
