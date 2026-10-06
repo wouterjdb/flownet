@@ -64,17 +64,21 @@ def create_webviz(output_folder: pathlib.Path, start_webviz: bool = True):
             check=True,
         )
 
-    webviz = shutil.which("webviz") or str(
-        pathlib.Path(sys.executable).with_name("webviz")
+    # The generated Webviz app has no __main__ guard, so child processes must be
+    # forked: the "forkserver" default of Python 3.14 re-imports the app and fails.
+    webviz_main = (
+        "import multiprocessing, sys; "
+        "multiprocessing.set_start_method('fork'); "
+        "from webviz_config.command_line import main; "
+        "sys.argv[0] = 'webviz'; "
+        "main()"
     )
-    if not pathlib.Path(webviz).is_file():
-        raise FileNotFoundError(
-            "webviz must be available in the active Python environment"
-        )
 
     subprocess.run(
         [
-            webviz,
+            sys.executable,
+            "-c",
+            webviz_main,
             "build",
             "./webviz_config.yml",
             "--portable",
