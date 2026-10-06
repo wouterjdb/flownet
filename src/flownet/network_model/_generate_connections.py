@@ -4,7 +4,7 @@ from typing import List, Tuple, Any, Optional
 from operator import itemgetter
 
 import numpy as np
-from numpy.core.function_base import linspace
+from numpy import linspace
 import pandas as pd
 from scipy.spatial import Delaunay, distance  # pylint: disable=no-name-in-module
 
@@ -414,7 +414,7 @@ def _create_entity_connection_matrix(
         "start_entity",
         "end_entity",
     ]
-    df_out = pd.DataFrame(columns=columns)
+    connections = []
 
     for start, end in zip(starts, ends):
         str_start_entity = __get_entity_str(df_coordinates, start)
@@ -438,7 +438,7 @@ def _create_entity_connection_matrix(
             ):
                 continue
 
-        df_out = df_out.append(
+        connections.append(
             {
                 "xstart": start[0],
                 "ystart": start[1],
@@ -448,14 +448,13 @@ def _create_entity_connection_matrix(
                 "zend": end[2],
                 "start_entity": str_start_entity,
                 "end_entity": str_end_entity,
-            },
-            ignore_index=True,
+            }
         )
 
     for start, end in zip(aquifer_starts, aquifer_ends):
         str_start_entity = __get_entity_str(df_coordinates, start)
 
-        df_out = df_out.append(
+        connections.append(
             {
                 "xstart": start[0],
                 "ystart": start[1],
@@ -465,10 +464,10 @@ def _create_entity_connection_matrix(
                 "zend": end[2],
                 "start_entity": str_start_entity,
                 "end_entity": "aquifer",
-            },
-            ignore_index=True,
+            }
         )
 
+    df_out = pd.DataFrame.from_records(connections, columns=columns)
     df_out = _remove_long_connections(df_out, max_distance_fraction, max_distance)
 
     print("done.")

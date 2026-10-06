@@ -57,8 +57,9 @@ python -m pip install -e .
 ```
 Omit the `-e` flag if you want a standard installation.
 
-Python 3.11 is currently supported and tested. To install the test dependencies,
-run `python -m pip install -e '.[tests]'` from the repository root.
+Python 3.11 is supported and tested. Python 3.12 unit tests pass, and the full
+simulator integration checks are being validated on Ubuntu 26.04. To install the
+test dependencies, run `python -m pip install -e '.[tests]'` from the repository root.
 
 > **Note:** When using the LSF queue, make sure the shell used by ERT activates the
 > virtual environment. You may need to source it from your `.cshrc` or `.bashrc`.

@@ -762,19 +762,25 @@ def run_flownet_history_matching(
             info.append([i] * len(relperm_parameters))
 
         if isinstance(relperm_interp_values, pd.DataFrame):
-            relperm_interp_values = relperm_interp_values.append(
-                pd.DataFrame(
-                    list(map(list, interp_info)),
-                    columns=list(relperm_parameters.keys()) + ["CASE", "SATNUM"],
-                ),
+            relperm_interp_values = pd.concat(
+                [
+                    relperm_interp_values,
+                    pd.DataFrame(
+                        list(map(list, interp_info)),
+                        columns=list(relperm_parameters.keys()) + ["CASE", "SATNUM"],
+                    ),
+                ],
                 ignore_index=True,
             )
 
-        relperm_dist_values = relperm_dist_values.append(
-            pd.DataFrame(
-                list(map(list, zip(*info))),
-                columns=column_names_probdist + ["satnum"],
-            ),
+        relperm_dist_values = pd.concat(
+            [
+                relperm_dist_values,
+                pd.DataFrame(
+                    list(map(list, zip(*info))),
+                    columns=column_names_probdist + ["satnum"],
+                ),
+            ],
             ignore_index=True,
         )
 
@@ -852,11 +858,14 @@ def run_flownet_history_matching(
             )
         info.append([i] * 4)
 
-        equil_dist_values = equil_dist_values.append(
-            pd.DataFrame(
-                list(map(list, zip(*info))),
-                columns=column_names_probdist + ["eqlnum"],
-            ),
+        equil_dist_values = pd.concat(
+            [
+                equil_dist_values,
+                pd.DataFrame(
+                    list(map(list, zip(*info))),
+                    columns=column_names_probdist + ["eqlnum"],
+                ),
+            ],
             ignore_index=True,
         )
 
@@ -928,11 +937,14 @@ def run_flownet_history_matching(
                 )
             info.append([i] * len(aquifer_parameters))
 
-            aquifer_dist_values = aquifer_dist_values.append(
-                pd.DataFrame(
-                    list(map(list, zip(*info))),
-                    columns=column_names_probdist + ["aquid"],
-                ),
+            aquifer_dist_values = pd.concat(
+                [
+                    aquifer_dist_values,
+                    pd.DataFrame(
+                        list(map(list, zip(*info))),
+                        columns=column_names_probdist + ["aquid"],
+                    ),
+                ],
                 ignore_index=True,
             )
 

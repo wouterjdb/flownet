@@ -16,11 +16,22 @@ on:
 
 jobs:
   FlowNet:
-    runs-on: ubuntu-24.04
+    runs-on: ${{ matrix.ubuntu-version }}
     strategy:
       matrix:
-        python-version: ["3.11"]
-        testdata-model: [ "egg", "norne"]
+        include:
+          - python-version: "3.11"
+            ubuntu-version: ubuntu-24.04
+            testdata-model: egg
+          - python-version: "3.11"
+            ubuntu-version: ubuntu-24.04
+            testdata-model: norne
+          - python-version: "3.12"
+            ubuntu-version: ubuntu-26.04
+            testdata-model: egg
+          - python-version: "3.12"
+            ubuntu-version: ubuntu-26.04
+            testdata-model: norne
     env:
       PYTHONWARNINGS: default
     steps:
@@ -144,7 +155,7 @@ jobs:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.pypi_flownet_token }}
         run: |
-          python -m pip install --upgrade setuptools wheel twine
+          python -m pip install --upgrade setuptools wheel setuptools-scm twine
           python setup.py bdist_wheel
           twine upload dist/*
 

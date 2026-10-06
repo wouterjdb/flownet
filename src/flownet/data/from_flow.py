@@ -6,11 +6,11 @@ from typing import Union, List, Tuple
 import numpy as np
 import pandas as pd
 from scipy.spatial import KDTree
-from ecl.grid import EclGrid
-from ecl.eclfile import EclFile, EclInitFile
-from ecl.summary import EclSum
-from ecl2df import faults
-from ecl2df.eclfiles import EclFiles
+from resdata.grid import Grid
+from resdata.resfile import ResdataFile, ResdataInitFile
+from resdata.summary import Summary
+from res2df import faults
+from res2df.resdatafiles import ResdataFiles
 
 from ..data import perforation_strategy, compdat
 
@@ -36,12 +36,14 @@ class FlowData(FromSource):
         super().__init__()
 
         self._input_case: Path = Path(input_case)
-        self._eclsum = EclSum(str(self._input_case))
-        self._init = EclFile(str(self._input_case.with_suffix(".INIT")))
-        self._grid = EclGrid(str(self._input_case.with_suffix(".EGRID")))
-        self._restart = EclFile(str(self._input_case.with_suffix(".UNRST")))
-        self._init = EclInitFile(self._grid, str(self._input_case.with_suffix(".INIT")))
-        self._wells = compdat.df(EclFiles(str(self._input_case)))
+        self._eclsum = Summary(str(self._input_case))
+        self._init = ResdataFile(str(self._input_case.with_suffix(".INIT")))
+        self._grid = Grid(str(self._input_case.with_suffix(".EGRID")))
+        self._restart = ResdataFile(str(self._input_case.with_suffix(".UNRST")))
+        self._init = ResdataInitFile(
+            self._grid, str(self._input_case.with_suffix(".INIT"))
+        )
+        self._wells = compdat.df(ResdataFiles(str(self._input_case)))
         self._layers = layers
 
     # pylint: disable=too-many-branches
@@ -207,7 +209,7 @@ class FlowData(FromSource):
             "WSTAT",
         ]
 
-        df_production_data = pd.DataFrame()
+        production_dataframes = []
 
         # Suppress a depreciation warning inside LibEcl
         warnings.simplefilter("ignore", category=DeprecationWarning)
@@ -247,7 +249,13 @@ class FlowData(FromSource):
                 df[["PHASE", "TYPE"]] = df[["PHASE", "TYPE"]].fillna(method="backfill")
                 df[["PHASE", "TYPE"]] = df[["PHASE", "TYPE"]].fillna(method="ffill")
 
-                df_production_data = df_production_data.append(df)
+                production_dataframes.append(df)
+
+        df_production_data = (
+            pd.concat(production_dataframes)
+            if production_dataframes
+            else pd.DataFrame()
+        )
 
         if df_production_data["WSTAT"].isna().all():
             warnings.warn(
@@ -285,13 +293,13 @@ class FlowData(FromSource):
 
     def _faults(self) -> pd.DataFrame:
         """
-        Function to read fault plane data using ecl2df.
+        Function to read fault plane data using res2df.
 
         Returns:
             A dataframe with columns NAME, X, Y, Z with data for fault planes
 
         """
-        eclfile = EclFiles(self._input_case)
+        eclfile = ResdataFiles(self._input_case)
         df_fault_keyword = faults.df(eclfile)
 
         points = []
@@ -531,7 +539,7 @@ class FlowData(FromSource):
         return self._well_logs()
 
     @property
-    def grid(self) -> EclGrid:
+    def grid(self) -> Grid:
         """the simulation grid with properties"""
         return self._grid
 

@@ -39,6 +39,10 @@ def resample_schedule_dates(schedule: Schedule, resampling: Optional[str]) -> Li
     df_dates_schedule = pd.to_datetime(schedule.get_dates())
 
     if resampling:
+        for old_suffix, new_suffix in {"M": "ME", "Q": "QE", "A": "YE"}.items():
+            if resampling.endswith(old_suffix):
+                resampling = resampling[: -len(old_suffix)] + new_suffix
+                break
         df_dates_resampled = pd.date_range(
             schedule.get_dates()[0],
             schedule.get_dates()[-1],
@@ -47,9 +51,7 @@ def resample_schedule_dates(schedule: Schedule, resampling: Optional[str]) -> Li
         df_schedule = pd.DataFrame(
             data=range(len(df_dates_schedule)), index=df_dates_schedule
         )
-        idx = np.zeros(len(df_dates_resampled), dtype=int)
-        for i, k in enumerate(df_dates_resampled):
-            idx[i] = df_schedule.index.get_loc(k, method="nearest")
+        idx = df_schedule.index.get_indexer(df_dates_resampled, method="nearest")
         dates = [
             d.date() for d in df_schedule.iloc[np.unique(idx)].index.to_pydatetime()
         ]

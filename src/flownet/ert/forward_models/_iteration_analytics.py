@@ -10,7 +10,7 @@ from typing import Any, Dict, Optional, List, Tuple
 import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from ecl.summary import EclSum
+from resdata.summary import Summary
 
 from flownet.data import FlowData
 from flownet.ert.forward_models.utils import get_last_iteration
@@ -194,7 +194,7 @@ def accuracy_metric(
     return score
 
 
-def _load_simulations(runpath: str, ecl_base: str) -> Tuple[str, Optional[EclSum]]:
+def _load_simulations(runpath: str, ecl_base: str) -> Tuple[str, Optional[Summary]]:
     """
     Internal helper function to load simulation results in parallel.
 
@@ -203,11 +203,11 @@ def _load_simulations(runpath: str, ecl_base: str) -> Tuple[str, Optional[EclSum
         ecl_base: Path to where the realization is run.
 
     Returns:
-        (runpath, EclSum), or (runpath, None) in case of failed simulation (inexistent .UNSMRY file)
+        (runpath, Summary), or (runpath, None) in case of failed simulation (inexistent .UNSMRY file)
 
     """
     try:
-        eclsum = EclSum(str(pathlib.Path(runpath) / pathlib.Path(ecl_base)))
+        eclsum = Summary(str(pathlib.Path(runpath) / pathlib.Path(ecl_base)))
     except KeyboardInterrupt:
         raise
     except Exception:  # pylint: disable=broad-except
@@ -320,7 +320,7 @@ def make_dataframe_simulation_data(
     n_realization = 0
 
     # Load all simulation results for the required vector keys
-    df_sim = pd.DataFrame()
+    simulation_dataframes = []
     for _, eclsum in realizations_dict.items():
         if eclsum and eclsum.dates[-1] >= end_date:
             df_realization = eclsum.pandas_frame(
@@ -328,8 +328,12 @@ def make_dataframe_simulation_data(
             )
             df_realization["DATE"] = eclsum.dates
 
-            df_sim = df_sim.append(df_realization)
+            simulation_dataframes.append(df_realization)
             n_realization += 1
+
+    df_sim = (
+        pd.concat(simulation_dataframes) if simulation_dataframes else pd.DataFrame()
+    )
 
     return df_sim, iteration, n_realization
 
@@ -460,8 +464,11 @@ def save_iteration_analytics():
         obs_opm, ens_flownet = normalize_data(obs_opm, ens_flownet)
 
         # Appending dataframe with accuracy metrics of current iteration
-        df_metrics = df_metrics.append(
-            compute_metric_ensemble(obs_opm, ens_flownet, metrics, key, iteration),
+        df_metrics = pd.concat(
+            [
+                df_metrics,
+                compute_metric_ensemble(obs_opm, ens_flownet, metrics, key, iteration),
+            ],
             ignore_index=True,
         )
 
