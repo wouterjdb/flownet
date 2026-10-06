@@ -7,7 +7,7 @@
 <p align="center">
 <a href="https://pypi.org/project/flownet/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/flownet"></a>
 <a href="https://github.com/equinor/flownet/actions/workflows/flownet.yml"><img alt="CI status" src="https://img.shields.io/github/actions/workflow/status/equinor/flownet/flownet.yml?branch=master&amp;label=CI"></a>
-<a href="https://www.python.org/"><img alt="Python 3.11" src="https://img.shields.io/badge/python-3.11-blue.svg"></a>
+<a href="https://www.python.org/"><img alt="Python 3.12 and 3.14 tested" src="https://img.shields.io/badge/python-3.12%20%7C%203.14-blue.svg"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: Black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 <a href="https://github.com/equinor/flownet/blob/master/LICENSE"><img alt="License: GPLv3" src="https://img.shields.io/github/license/equinor/flownet"></a>
 </p>
@@ -50,16 +50,17 @@ To install the latest unreleased code:
 ```bash
 git clone https://github.com/equinor/flownet.git
 cd flownet
-python3.11 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -e .
 ```
 Omit the `-e` flag if you want a standard installation.
 
-Python 3.11 is supported and tested. Python 3.12 unit tests pass, and the full
-simulator integration checks are being validated on Ubuntu 26.04. To install the
-test dependencies, run `python -m pip install -e '.[tests]'` from the repository root.
+Python 3.12 and 3.14 are tested on Ubuntu 24.04 and 26.04, respectively. Python
+3.13 is within the declared dependency range but is not a separate CI target. To
+install test dependencies, run `python -m pip install -e '.[tests]'` from the
+repository root.
 
 > **Note:** When using the LSF queue, make sure the shell used by ERT activates the
 > virtual environment. You may need to source it from your `.cshrc` or `.bashrc`.

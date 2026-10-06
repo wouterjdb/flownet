@@ -505,7 +505,11 @@ class FlowData(FromSource):
 
             # Compute the total volumes per tube section between the current depth levels
             properties_per_cell["distributed_volume"] = tube_cell_volumes
-            tube_volumes = properties_per_cell.groupby(by="model").sum().values
+            tube_volumes = (
+                properties_per_cell.groupby(by="model")["distributed_volume"]
+                .sum()
+                .values
+            )
 
             # Evenly distribute tube volumes over the tube cells between the current depth levels
             for tube in range(number_of_tubes):
