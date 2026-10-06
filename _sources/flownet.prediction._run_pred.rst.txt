@@ -1,0 +1,8 @@
+flownet.prediction.\_run\_pred module
+=====================================
+
+.. automodule:: flownet.prediction._run_pred
+   :members:
+   :private-members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>flownet.realization._simulation_keywords module &mdash; FlowNet  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/configsuite_ext.css?v=dc4969e5" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/configsuite_ext.js?v=5727a511"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="flownet.realization._simulation_realization module" href="flownet.realization._simulation_realization.html" />
+    <link rel="prev" title="flownet.realization._schedule module" href="flownet.realization._schedule.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #eeeeee" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/flownet_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration_file.html">Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">FlowNet Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#flownet-package">flownet package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About FlowNet</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #eeeeee" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FlowNet</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">FlowNet Python API</a></li>
+          <li class="breadcrumb-item"><a href="flownet.realization.html">flownet.realization package</a></li>
+      <li class="breadcrumb-item active">flownet.realization._simulation_keywords module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/flownet.realization._simulation_keywords.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-flownet.realization._simulation_keywords">
+<span id="flownet-realization-simulation-keywords-module"></span><h1>flownet.realization._simulation_keywords module<a class="headerlink" href="#module-flownet.realization._simulation_keywords" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.COMPDAT">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">flownet.realization._simulation_keywords.</span></span><span class="sig-name descname"><span class="pre">COMPDAT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">satnum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dfact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flownet.realization._simulation_keywords.COMPDAT" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flownet.realization._simulation_keywords.Keyword" title="flownet.realization._simulation_keywords.Keyword"><code class="xref py py-class docutils literal notranslate"><span class="pre">Keyword</span></code></a></p>
+<p>The COMPDAT keyword defines how a well is connected to the reservoir by defining or modifying existing
+well connections. Ideally the connections should be declared in the correct sequence, starting with the
+connection nearest the well head and then working along the wellbore towards the bottom or toe of the
+well.</p>
+<p>See the OPM Flow manual for further details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.COMPDAT._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.COMPDAT._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.DATES">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">flownet.realization._simulation_keywords.</span></span><span class="sig-name descname"><span class="pre">DATES</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flownet.realization._simulation_keywords.DATES" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flownet.realization._simulation_keywords.Keyword" title="flownet.realization._simulation_keywords.Keyword"><code class="xref py py-class docutils literal notranslate"><span class="pre">Keyword</span></code></a></p>
+<p>This keyword advances the simulation to a given report date after which additional keywords may be entered
+to instruct OPM Flow to perform additional functions via the SCHEDULE section keywords, or further
+DATES data sets or keywords may be entered to advance the simulator to the next report date.</p>
+<p>See the OPM Flow manual for further details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.DATES._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.DATES._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.Keyword">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">flownet.realization._simulation_keywords.</span></span><span class="sig-name descname"><span class="pre">Keyword</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flownet.realization._simulation_keywords.Keyword" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Each simulation Keyword is a subclass of the Keyword-class - which enforces that a keyword is always linked
+to a particular date.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.Keyword._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.Keyword._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.Keyword.bhp">
+<span class="sig-name descname"><span class="pre">bhp</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.Keyword.bhp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.Keyword.date">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">date</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">date</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.Keyword.date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.Keyword.gas_rate">
+<span class="sig-name descname"><span class="pre">gas_rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.Keyword.gas_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.Keyword.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.Keyword.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.Keyword.oil_rate">
+<span class="sig-name descname"><span class="pre">oil_rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.Keyword.oil_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.Keyword.thp">
+<span class="sig-name descname"><span class="pre">thp</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.Keyword.thp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.Keyword.well_name">
+<span class="sig-name descname"><span class="pre">well_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.Keyword.well_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">flownet.realization._simulation_keywords.</span></span><span class="sig-name descname"><span class="pre">WCONHIST</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prod_control_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oil_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">salt_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">salt_total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oil_total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas_total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vfp_table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">artificial_lift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bhp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flownet.realization._simulation_keywords.Keyword" title="flownet.realization._simulation_keywords.Keyword"><code class="xref py py-class docutils literal notranslate"><span class="pre">Keyword</span></code></a></p>
+<p>The WCONHIST keyword defines production rates and pressures for wells that have been declared history
+matching wells by the use of this keyword. History matching wells are handled differently than ordinary wells
+that use the WCONPROD keyword for controlling their production targets and constraints. However, the
+wells still need to be defined like ordinary production wells using the WELSPECS keyword in the SCHEDULE
+section.</p>
+<p>See the OPM Flow manual for further details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.artificial_lift">
+<span class="sig-name descname"><span class="pre">artificial_lift</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.artificial_lift" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.bhp">
+<span class="sig-name descname"><span class="pre">bhp</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.bhp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.gas_rate">
+<span class="sig-name descname"><span class="pre">gas_rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.gas_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.gas_total">
+<span class="sig-name descname"><span class="pre">gas_total</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.gas_total" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.oil_rate">
+<span class="sig-name descname"><span class="pre">oil_rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.oil_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.oil_total">
+<span class="sig-name descname"><span class="pre">oil_total</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.oil_total" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.prod_control_mode">
+<span class="sig-name descname"><span class="pre">prod_control_mode</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.prod_control_mode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.salt_rate">
+<span class="sig-name descname"><span class="pre">salt_rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.salt_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.salt_total">
+<span class="sig-name descname"><span class="pre">salt_total</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.salt_total" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.status">
+<span class="sig-name descname"><span class="pre">status</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.status" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.temperature">
+<span class="sig-name descname"><span class="pre">temperature</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.temperature" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.thp">
+<span class="sig-name descname"><span class="pre">thp</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.thp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.vfp_table">
+<span class="sig-name descname"><span class="pre">vfp_table</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.vfp_table" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.water_rate">
+<span class="sig-name descname"><span class="pre">water_rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.water_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.water_total">
+<span class="sig-name descname"><span class="pre">water_total</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.water_total" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONHIST.well_name">
+<span class="sig-name descname"><span class="pre">well_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONHIST.well_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">flownet.realization._simulation_keywords.</span></span><span class="sig-name descname"><span class="pre">WCONINJH</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inj_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bhp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vfp_table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inj_control_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flownet.realization._simulation_keywords.Keyword" title="flownet.realization._simulation_keywords.Keyword"><code class="xref py py-class docutils literal notranslate"><span class="pre">Keyword</span></code></a></p>
+<p>The WCONINJH keyword defines injection rates and pressures for wells that have been declared history
+matching wells by the use of this keyword. History matching wells are handled differently then ordinary wells
+that use the WCONINJE keyword for controlling their injection targets and constraints. However, the wells
+still need to be defined like ordinary injection wells using the WELSPECS keyword in the SCHEDULE section.</p>
+<p>See the OPM Flow manual for further details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH.bhp">
+<span class="sig-name descname"><span class="pre">bhp</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH.bhp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH.inj_control_mode">
+<span class="sig-name descname"><span class="pre">inj_control_mode</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH.inj_control_mode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH.inj_type">
+<span class="sig-name descname"><span class="pre">inj_type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH.inj_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH.rate">
+<span class="sig-name descname"><span class="pre">rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH.rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH.status">
+<span class="sig-name descname"><span class="pre">status</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH.status" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH.thp">
+<span class="sig-name descname"><span class="pre">thp</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH.thp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH.total">
+<span class="sig-name descname"><span class="pre">total</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH.total" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH.vfp_table">
+<span class="sig-name descname"><span class="pre">vfp_table</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH.vfp_table" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WCONINJH.well_name">
+<span class="sig-name descname"><span class="pre">well_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WCONINJH.well_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">flownet.realization._simulation_keywords.</span></span><span class="sig-name descname"><span class="pre">WELSPECS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_depth_bhp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drainage_radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inflow_equation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shutin_instruction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crossflow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvt_table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_calc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1*'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flownet.realization._simulation_keywords.Keyword" title="flownet.realization._simulation_keywords.Keyword"><code class="xref py py-class docutils literal notranslate"><span class="pre">Keyword</span></code></a></p>
+<p>The WELSPECS keyword defines the general well specification data for all well types, and must be used for all
+wells before any other well specification keywords are used in the input file. The keyword declares the name
+of well, the wellhead location and other key parameters.</p>
+<p>See the OPM Flow manual for further details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.crossflow">
+<span class="sig-name descname"><span class="pre">crossflow</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.crossflow" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.density_calc">
+<span class="sig-name descname"><span class="pre">density_calc</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.density_calc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.drainge_radius">
+<span class="sig-name descname"><span class="pre">drainge_radius</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.drainge_radius" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.fip">
+<span class="sig-name descname"><span class="pre">fip</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.fip" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.group_name">
+<span class="sig-name descname"><span class="pre">group_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.group_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.i">
+<span class="sig-name descname"><span class="pre">i</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.i" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.inflow_equation">
+<span class="sig-name descname"><span class="pre">inflow_equation</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.inflow_equation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.j">
+<span class="sig-name descname"><span class="pre">j</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.j" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.phase">
+<span class="sig-name descname"><span class="pre">phase</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.phase" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.pvt_table">
+<span class="sig-name descname"><span class="pre">pvt_table</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.pvt_table" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.ref_depth_bhp">
+<span class="sig-name descname"><span class="pre">ref_depth_bhp</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.ref_depth_bhp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.shutin_instruction">
+<span class="sig-name descname"><span class="pre">shutin_instruction</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.shutin_instruction" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WELSPECS.well_name">
+<span class="sig-name descname"><span class="pre">well_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WELSPECS.well_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WSALT">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">flownet.realization._simulation_keywords.</span></span><span class="sig-name descname"><span class="pre">WSALT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">salt_concentration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flownet.realization._simulation_keywords.WSALT" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flownet.realization._simulation_keywords.Keyword" title="flownet.realization._simulation_keywords.Keyword"><code class="xref py py-class docutils literal notranslate"><span class="pre">Keyword</span></code></a></p>
+<p>The WSALT keyword defines the salt concentration of the injected water.</p>
+<p>See the OPM Flow manual for further details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WSALT._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WSALT._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WSALT.salt_concentration">
+<span class="sig-name descname"><span class="pre">salt_concentration</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WSALT.salt_concentration" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WSALT.well_name">
+<span class="sig-name descname"><span class="pre">well_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WSALT.well_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WTEMP">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">flownet.realization._simulation_keywords.</span></span><span class="sig-name descname"><span class="pre">WTEMP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flownet.realization._simulation_keywords.WTEMP" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flownet.realization._simulation_keywords.Keyword" title="flownet.realization._simulation_keywords.Keyword"><code class="xref py py-class docutils literal notranslate"><span class="pre">Keyword</span></code></a></p>
+<p>The WTEMP keyword defines the temperature of the injected water.</p>
+<p>See the OPM Flow manual for further details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WTEMP._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WTEMP._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WTEMP.temperature">
+<span class="sig-name descname"><span class="pre">temperature</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WTEMP.temperature" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flownet.realization._simulation_keywords.WTEMP.well_name">
+<span class="sig-name descname"><span class="pre">well_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#flownet.realization._simulation_keywords.WTEMP.well_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="flownet.realization._schedule.html" class="btn btn-neutral float-left" title="flownet.realization._schedule module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="flownet.realization._simulation_realization.html" class="btn btn-neutral float-right" title="flownet.realization._simulation_realization module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Equinor.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

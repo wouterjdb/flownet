@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; FlowNet  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/configsuite_ext.css?v=dc4969e5" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/configsuite_ext.js?v=5727a511"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configuration file" href="configuration_file.html" />
+    <link rel="prev" title="FlowNet documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #eeeeee" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/flownet_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#key-features">Key features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-parametrization">Automatic parametrization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#benchmark-models">Benchmark models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publications">Publications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration_file.html">Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">FlowNet Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#flownet-package">flownet package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About FlowNet</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #eeeeee" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FlowNet</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<img alt="_images/flownet_model.svg" src="_images/flownet_model.svg" />
+<p><strong>FlowNet</strong> aims at making predictive subsurface models directly from data. Instead of
+complex simulation grids, FlowNet uses networks of tubes (with full physics within each tube),
+speeding up simulation models by order of magnitudes, which again makes it possible with
+e.g. increased sampling of the uncertainty span compared with traditional workflows.</p>
+<section id="key-features">
+<h2>Key features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Fast model building:</strong> Very efficiently get an ensemble of subsurface models,
+compared to duration of traditional modeling projects.</p></li>
+<li><p><strong>Fast simulation runtime:</strong> Reduce the simulation time per model realization
+by order of magnitudes, which can be traded for e.g. better sampling of your
+uncertainty span.</p></li>
+<li><p><strong>Automatic parametrization:</strong> FlowNet will automatically parametrize typical subsurface
+uncertainties for you.</p></li>
+<li><p><strong>Data driven:</strong> FlowNet will use what typically is considered raw data in a model
+building process directly.</p></li>
+<li><p><strong>Easy:</strong> As FlowNet user, you only need to adjust a
+<a class="reference internal" href="configuration_file.html"><span class="doc">high level configuration file</span></a> - no Python
+skills necessary.</p></li>
+<li><p><strong>Standards-based:</strong> Based on and compatible with open standards. FlowNets stands on the shoulders of giants:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/equinor/ert">ERT</a> for doing uncertinaty sampling (and optionally assisted history matching).</p></li>
+<li><p><a class="reference external" href="https://github.com/OPM/opm-simulators">Flow</a> for running the simulation models.</p></li>
+<li><p><a class="reference external" href="https://github.com/equinor/webviz-config">Webviz</a> for visualization of results (profiles, history match quality, parameter distributions…)</p></li>
+<li><p><a class="reference external" href="https://github.com/OPM/ResInsight">ResInsight</a> for three dimensional exploration of the network and simulation grid results.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>FlowNet aims at being data driven software. I.e. the preferred way is that raw
+input data to FlowNet should arrive from APIs (from other softwares). However,
+in order to also facilitate testing and developing FlowNet without an available data API
+framework, FlowNet can also extract necessary input data from an existing simulation model.</p>
+<img alt="_images/flownet-concept.svg" src="_images/flownet-concept.svg" />
+</section>
+<section id="automatic-parametrization">
+<h2>Automatic parametrization<a class="headerlink" href="#automatic-parametrization" title="Link to this heading"></a></h2>
+<p>In traditional modelling workflows, the user has to parametrize the model manually
+when setting it up. This is time consuming and routine work, and can also result
+in less parametrization (which again might result in not spanning the real uncertainty span).</p>
+<p>FlowNet will automatically add typical parametrizations, and leave only responsibility
+for high level options (e.g. prior-distribution end-points) to the user,
+which he/she sets through the <a class="reference internal" href="configuration_file.html"><span class="doc">configuration file</span></a>.</p>
+<p>FlowNet currently supports the following automatic parametrization:</p>
+<ul class="simple">
+<li><p>Aquifers</p></li>
+<li><p>Equilibration</p></li>
+<li><p>Fault transmissibilities</p></li>
+<li><p>Permeabilities</p></li>
+<li><p>Porosity and porevolumes</p></li>
+<li><p>Relative permeabilities</p></li>
+<li><p>Rock compressibility</p></li>
+</ul>
+<p>To be added:</p>
+<ul class="simple">
+<li><p>PVT table parametrization</p></li>
+<li><p>Lift curve parametrization</p></li>
+<li><p>…</p></li>
+</ul>
+</section>
+<section id="benchmark-models">
+<h2>Benchmark models<a class="headerlink" href="#benchmark-models" title="Link to this heading"></a></h2>
+<p>The core developers of FlowNet are currently testing on the following open benchmark models:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/OPM/opm-data/tree/master/norne">Norne model</a></p></li>
+<li><p><a class="reference external" href="https://github.com/TNO/Brugge">Brugge model</a></p></li>
+<li><p><a class="reference external" href="https://data.4tu.nl/articles/The_Egg_Model_-_data_files/12707642">Egg model</a></p></li>
+</ul>
+</div></blockquote>
+<p>A small Norne assisted history matching example using FlowNet is automatically started
+on each commit to FlowNet pull requests, in order verify the code changes.</p>
+<p>Going forward, we will try to aim for having an Azure resource running on merge to <cite>master</cite>,
+and then have the results (profiles, history match profiles etc.) automatically pushed back
+to the FlowNet repository - showing current results on the benchmark model.</p>
+</section>
+<section id="publications">
+<h2>Publications<a class="headerlink" href="#publications" title="Link to this heading"></a></h2>
+<p>A first version FlowNet was presented at the 17th European Conference on the Mathematics of Oil Recovery
+(ECMOR XVII) held 14-17 September 2020. The reference for the conference paper is</p>
+<p>A.F. Kiær, O.P. Lødøen, W.J. de Bruin, E. Barros and O. Leeuwenburgh, Evaluation of a Data-Driven
+Flow Network Model (FlowNet) for Reservoir Prediction and Optimzation, Conference Proceedings, ECMOR XVII,
+Sep 2020, Volume 2020, p.1-18, DOI: <a class="reference external" href="https://doi.org/10.3997/2214-4609.202035099">https://doi.org/10.3997/2214-4609.202035099</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="FlowNet documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configuration_file.html" class="btn btn-neutral float-right" title="Configuration file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Equinor.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

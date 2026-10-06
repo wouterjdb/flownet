@@ -1,0 +1,8 @@
+flownet.utils.kriging module
+============================
+
+.. automodule:: flownet.utils.kriging
+   :members:
+   :private-members:
+   :show-inheritance:
+   :undoc-members:

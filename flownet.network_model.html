@@ -1,0 +1,200 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>flownet.network_model package &mdash; FlowNet  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/configsuite_ext.css?v=dc4969e5" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/configsuite_ext.js?v=5727a511"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="flownet.network_model._create_egrid module" href="flownet.network_model._create_egrid.html" />
+    <link rel="prev" title="flownet.hyperparameter._run_hyper module" href="flownet.hyperparameter._run_hyper.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #eeeeee" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/flownet_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration_file.html">Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">FlowNet Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#flownet-package">flownet package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About FlowNet</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #eeeeee" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FlowNet</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">FlowNet Python API</a></li>
+      <li class="breadcrumb-item active">flownet.network_model package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/flownet.network_model.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="flownet-network-model-package">
+<h1>flownet.network_model package<a class="headerlink" href="#flownet-network-model-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flownet.network_model._create_egrid.html">flownet.network_model._create_egrid module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._create_egrid.html#flownet.network_model._create_egrid.construct_kw"><code class="docutils literal notranslate"><span class="pre">construct_kw()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._create_egrid.html#flownet.network_model._create_egrid.create_egrid"><code class="docutils literal notranslate"><span class="pre">create_egrid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.network_model._generate_connections.html">flownet.network_model._generate_connections module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections.__get_entity_str"><code class="docutils literal notranslate"><span class="pre">__get_entity_str()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._check_for_none_connectivity_amongst_entities"><code class="docutils literal notranslate"><span class="pre">_check_for_none_connectivity_amongst_entities()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._create_entity_connection_matrix"><code class="docutils literal notranslate"><span class="pre">_create_entity_connection_matrix()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._create_record"><code class="docutils literal notranslate"><span class="pre">_create_record()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._generate_aquifer_connections"><code class="docutils literal notranslate"><span class="pre">_generate_aquifer_connections()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._generate_connections"><code class="docutils literal notranslate"><span class="pre">_generate_connections()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._is_angle_too_large"><code class="docutils literal notranslate"><span class="pre">_is_angle_too_large()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._remove_long_connections"><code class="docutils literal notranslate"><span class="pre">_remove_long_connections()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._remove_recorded_connections"><code class="docutils literal notranslate"><span class="pre">_remove_recorded_connections()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._split_additional_flow_nodes"><code class="docutils literal notranslate"><span class="pre">_split_additional_flow_nodes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections.create_connections"><code class="docutils literal notranslate"><span class="pre">create_connections()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.network_model._hull.html">flownet.network_model._hull module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._hull.html#flownet.network_model._hull.check_in_hull"><code class="docutils literal notranslate"><span class="pre">check_in_hull()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.network_model._mitchell.html">flownet.network_model._mitchell module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._mitchell.html#flownet.network_model._mitchell._generate_candidates"><code class="docutils literal notranslate"><span class="pre">_generate_candidates()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._mitchell.html#flownet.network_model._mitchell.mitchell_best_candidate"><code class="docutils literal notranslate"><span class="pre">mitchell_best_candidate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._mitchell.html#flownet.network_model._mitchell.scale_convex_hull_perforations"><code class="docutils literal notranslate"><span class="pre">scale_convex_hull_perforations()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.network_model._network_model.html">flownet.network_model._network_model module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel"><code class="docutils literal notranslate"><span class="pre">NetworkModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel._calculate_connections_at_nodes"><code class="docutils literal notranslate"><span class="pre">NetworkModel._calculate_connections_at_nodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel._calculate_faults"><code class="docutils literal notranslate"><span class="pre">NetworkModel._calculate_faults()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel._calculate_grid_corner_points"><code class="docutils literal notranslate"><span class="pre">NetworkModel._calculate_grid_corner_points()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel._calculate_nncs"><code class="docutils literal notranslate"><span class="pre">NetworkModel._calculate_nncs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel._create_connection_groups"><code class="docutils literal notranslate"><span class="pre">NetworkModel._create_connection_groups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel._get_aquifer_i"><code class="docutils literal notranslate"><span class="pre">NetworkModel._get_aquifer_i()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.active_mask"><code class="docutils literal notranslate"><span class="pre">NetworkModel.active_mask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.aquifers_i"><code class="docutils literal notranslate"><span class="pre">NetworkModel.aquifers_i</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.aquifers_xyz"><code class="docutils literal notranslate"><span class="pre">NetworkModel.aquifers_xyz</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.area"><code class="docutils literal notranslate"><span class="pre">NetworkModel.area</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.bulk_volume_per_flownet_cell_based_on_tube_length"><code class="docutils literal notranslate"><span class="pre">NetworkModel.bulk_volume_per_flownet_cell_based_on_tube_length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.cell_length"><code class="docutils literal notranslate"><span class="pre">NetworkModel.cell_length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.cell_midpoints"><code class="docutils literal notranslate"><span class="pre">NetworkModel.cell_midpoints</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.connection_at_nodes"><code class="docutils literal notranslate"><span class="pre">NetworkModel.connection_at_nodes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.connection_midpoints"><code class="docutils literal notranslate"><span class="pre">NetworkModel.connection_midpoints</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.convexhull"><code class="docutils literal notranslate"><span class="pre">NetworkModel.convexhull</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.df_entity_connections"><code class="docutils literal notranslate"><span class="pre">NetworkModel.df_entity_connections</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.faults"><code class="docutils literal notranslate"><span class="pre">NetworkModel.faults</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.get_connection_midpoints"><code class="docutils literal notranslate"><span class="pre">NetworkModel.get_connection_midpoints()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.grid"><code class="docutils literal notranslate"><span class="pre">NetworkModel.grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.initial_cell_volumes"><code class="docutils literal notranslate"><span class="pre">NetworkModel.initial_cell_volumes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.nncs"><code class="docutils literal notranslate"><span class="pre">NetworkModel.nncs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.total_bulkvolume"><code class="docutils literal notranslate"><span class="pre">NetworkModel.total_bulkvolume</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel.volume_layering"><code class="docutils literal notranslate"><span class="pre">NetworkModel.volume_layering</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html">flownet.network_model._one_dimensional_model module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html#flownet.network_model._one_dimensional_model.OneDimensionalModel"><code class="docutils literal notranslate"><span class="pre">OneDimensionalModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html#flownet.network_model._one_dimensional_model.OneDimensionalModel.cell_length"><code class="docutils literal notranslate"><span class="pre">OneDimensionalModel.cell_length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html#flownet.network_model._one_dimensional_model.OneDimensionalModel.df_coord"><code class="docutils literal notranslate"><span class="pre">OneDimensionalModel.df_coord</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html#flownet.network_model._one_dimensional_model.OneDimensionalModel.end"><code class="docutils literal notranslate"><span class="pre">OneDimensionalModel.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html#flownet.network_model._one_dimensional_model.OneDimensionalModel.length"><code class="docutils literal notranslate"><span class="pre">OneDimensionalModel.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html#flownet.network_model._one_dimensional_model.OneDimensionalModel.n"><code class="docutils literal notranslate"><span class="pre">OneDimensionalModel.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html#flownet.network_model._one_dimensional_model.OneDimensionalModel.nactive"><code class="docutils literal notranslate"><span class="pre">OneDimensionalModel.nactive</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html#flownet.network_model._one_dimensional_model.OneDimensionalModel.start"><code class="docutils literal notranslate"><span class="pre">OneDimensionalModel.start</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-flownet.network_model">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flownet.network_model" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="flownet.hyperparameter._run_hyper.html" class="btn btn-neutral float-left" title="flownet.hyperparameter._run_hyper module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="flownet.network_model._create_egrid.html" class="btn btn-neutral float-right" title="flownet.network_model._create_egrid module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Equinor.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

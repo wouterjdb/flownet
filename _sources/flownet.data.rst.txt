@@ -1,0 +1,24 @@
+flownet.data package
+====================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   flownet.data.compdat
+   flownet.data.from_csv
+   flownet.data.from_flow
+   flownet.data.from_pdm
+   flownet.data.from_source
+   flownet.data.perforation_strategy
+
+Module contents
+---------------
+
+.. automodule:: flownet.data
+   :members:
+   :private-members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>flownet package &mdash; FlowNet  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/configsuite_ext.css?v=dc4969e5" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/configsuite_ext.js?v=5727a511"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #eeeeee" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/flownet_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration_file.html">Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">FlowNet Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#flownet-package">flownet package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About FlowNet</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #eeeeee" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FlowNet</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">flownet package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/flownet.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="flownet-package">
+<h1>flownet package<a class="headerlink" href="#flownet-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flownet.ahm.html">flownet.ahm package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.ahm.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.ahm._assisted_history_matching.html">flownet.ahm._assisted_history_matching module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ahm._assisted_history_matching.html#flownet.ahm._assisted_history_matching.AssistedHistoryMatching"><code class="docutils literal notranslate"><span class="pre">AssistedHistoryMatching</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.ahm._run_ahm.html">flownet.ahm._run_ahm module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ahm._run_ahm.html#flownet.ahm._run_ahm._constrain_using_well_logs"><code class="docutils literal notranslate"><span class="pre">_constrain_using_well_logs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ahm._run_ahm.html#flownet.ahm._run_ahm._find_training_set_fraction"><code class="docutils literal notranslate"><span class="pre">_find_training_set_fraction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ahm._run_ahm.html#flownet.ahm._run_ahm._from_regions_to_flow_tubes"><code class="docutils literal notranslate"><span class="pre">_from_regions_to_flow_tubes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ahm._run_ahm.html#flownet.ahm._run_ahm._get_distribution"><code class="docutils literal notranslate"><span class="pre">_get_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ahm._run_ahm.html#flownet.ahm._run_ahm._get_regional_distribution"><code class="docutils literal notranslate"><span class="pre">_get_regional_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ahm._run_ahm.html#flownet.ahm._run_ahm._set_up_ahm_and_run_ert"><code class="docutils literal notranslate"><span class="pre">_set_up_ahm_and_run_ert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ahm._run_ahm.html#flownet.ahm._run_ahm.run_flownet_history_matching"><code class="docutils literal notranslate"><span class="pre">run_flownet_history_matching()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ahm._run_ahm.html#flownet.ahm._run_ahm.run_flownet_history_matching_from_restart"><code class="docutils literal notranslate"><span class="pre">run_flownet_history_matching_from_restart()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ahm._run_ahm.html#flownet.ahm._run_ahm.update_distribution"><code class="docutils literal notranslate"><span class="pre">update_distribution()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.ahm.html#module-flownet.ahm">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.config_parser.html">flownet.config_parser package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.config_parser.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.config_parser._config_parser.html">flownet.config_parser._config_parser module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser.html#flownet.config_parser._config_parser._check_defined"><code class="docutils literal notranslate"><span class="pre">_check_defined()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser.html#flownet.config_parser._config_parser._check_distribution"><code class="docutils literal notranslate"><span class="pre">_check_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser.html#flownet.config_parser._config_parser._check_for_negative_values"><code class="docutils literal notranslate"><span class="pre">_check_for_negative_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser.html#flownet.config_parser._config_parser._check_if_all_region_priors_defined"><code class="docutils literal notranslate"><span class="pre">_check_if_all_region_priors_defined()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser.html#flownet.config_parser._config_parser._check_interpolate"><code class="docutils literal notranslate"><span class="pre">_check_interpolate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser.html#flownet.config_parser._config_parser._check_order_of_values"><code class="docutils literal notranslate"><span class="pre">_check_order_of_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser.html#flownet.config_parser._config_parser._normalize_analysis_entries"><code class="docutils literal notranslate"><span class="pre">_normalize_analysis_entries()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser.html#flownet.config_parser._config_parser.create_schema"><code class="docutils literal notranslate"><span class="pre">create_schema()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser.html#flownet.config_parser._config_parser.create_schema_without_arguments"><code class="docutils literal notranslate"><span class="pre">create_schema_without_arguments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser.html#flownet.config_parser._config_parser.parse_config"><code class="docutils literal notranslate"><span class="pre">parse_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.config_parser._config_parser_hyperparam.html">flownet.config_parser._config_parser_hyperparam module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser_hyperparam.html#flownet.config_parser._config_parser_hyperparam.create_ahm_config"><code class="docutils literal notranslate"><span class="pre">create_ahm_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser_hyperparam.html#flownet.config_parser._config_parser_hyperparam.create_hyperopt_space"><code class="docutils literal notranslate"><span class="pre">create_hyperopt_space()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser_hyperparam.html#flownet.config_parser._config_parser_hyperparam.list_hyperparameters"><code class="docutils literal notranslate"><span class="pre">list_hyperparameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser_hyperparam.html#flownet.config_parser._config_parser_hyperparam.list_hyperparameters_names"><code class="docutils literal notranslate"><span class="pre">list_hyperparameters_names()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser_hyperparam.html#flownet.config_parser._config_parser_hyperparam.parse_hyperparam_config"><code class="docutils literal notranslate"><span class="pre">parse_hyperparam_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser_hyperparam.html#flownet.config_parser._config_parser_hyperparam.update_hyper_config"><code class="docutils literal notranslate"><span class="pre">update_hyper_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.config_parser._config_parser_pred.html">flownet.config_parser._config_parser_pred module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser_pred.html#flownet.config_parser._config_parser_pred.create_schema"><code class="docutils literal notranslate"><span class="pre">create_schema()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._config_parser_pred.html#flownet.config_parser._config_parser_pred.parse_pred_config"><code class="docutils literal notranslate"><span class="pre">parse_pred_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.config_parser._config_transformations.html">flownet.config_parser._config_transformations module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.config_parser._merge_configs.html">flownet.config_parser._merge_configs module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.config_parser._merge_configs.html#flownet.config_parser._merge_configs.merge_configs"><code class="docutils literal notranslate"><span class="pre">merge_configs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.config_parser.html#module-flownet.config_parser">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.data.html">flownet.data package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.data.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.data.compdat.html">flownet.data.compdat module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.compdat.html#flownet.data.compdat.applywelopen"><code class="docutils literal notranslate"><span class="pre">applywelopen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.compdat.html#flownet.data.compdat.compdat_main"><code class="docutils literal notranslate"><span class="pre">compdat_main()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.compdat.html#flownet.data.compdat.deck2dfs"><code class="docutils literal notranslate"><span class="pre">deck2dfs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.compdat.html#flownet.data.compdat.df"><code class="docutils literal notranslate"><span class="pre">df()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.compdat.html#flownet.data.compdat.fill_parser"><code class="docutils literal notranslate"><span class="pre">fill_parser()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.compdat.html#flownet.data.compdat.logger"><code class="docutils literal notranslate"><span class="pre">logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.compdat.html#flownet.data.compdat.postprocess"><code class="docutils literal notranslate"><span class="pre">postprocess()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.compdat.html#flownet.data.compdat.unrolldf"><code class="docutils literal notranslate"><span class="pre">unrolldf()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.data.from_csv.html">flownet.data.from_csv module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.from_csv.html#flownet.data.from_csv.CSVData"><code class="docutils literal notranslate"><span class="pre">CSVData</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.data.from_flow.html">flownet.data.from_flow module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.from_flow.html#flownet.data.from_flow.FlowData"><code class="docutils literal notranslate"><span class="pre">FlowData</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.data.from_pdm.html">flownet.data.from_pdm module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.data.from_source.html">flownet.data.from_source module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.from_source.html#flownet.data.from_source.FromSource"><code class="docutils literal notranslate"><span class="pre">FromSource</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.data.perforation_strategy.html">flownet.data.perforation_strategy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.perforation_strategy.html#flownet.data.perforation_strategy.bottom_point"><code class="docutils literal notranslate"><span class="pre">bottom_point()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.perforation_strategy.html#flownet.data.perforation_strategy.multiple"><code class="docutils literal notranslate"><span class="pre">multiple()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.perforation_strategy.html#flownet.data.perforation_strategy.multiple_based_on_workovers"><code class="docutils literal notranslate"><span class="pre">multiple_based_on_workovers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.perforation_strategy.html#flownet.data.perforation_strategy.time_avg_open_location"><code class="docutils literal notranslate"><span class="pre">time_avg_open_location()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.data.perforation_strategy.html#flownet.data.perforation_strategy.top_point"><code class="docutils literal notranslate"><span class="pre">top_point()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.data.html#module-flownet.data">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.ert.html">flownet.ert package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.ert.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.ert.forward_models.html">flownet.ert.forward_models package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ert.forward_models.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ert.forward_models.html#module-flownet.ert.forward_models">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.ert.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.ert._create_ert_setup.html">flownet.ert._create_ert_setup module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ert._create_ert_setup.html#flownet.ert._create_ert_setup._create_ert_parameter_file"><code class="docutils literal notranslate"><span class="pre">_create_ert_parameter_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ert._create_ert_setup.html#flownet.ert._create_ert_setup.create_ert_setup"><code class="docutils literal notranslate"><span class="pre">create_ert_setup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ert._create_ert_setup.html#flownet.ert._create_ert_setup.create_observation_file"><code class="docutils literal notranslate"><span class="pre">create_observation_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ert._create_ert_setup.html#flownet.ert._create_ert_setup.resample_schedule_dates"><code class="docutils literal notranslate"><span class="pre">resample_schedule_dates()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.ert._create_synthetic_refcase.html">flownet.ert._create_synthetic_refcase module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ert._create_synthetic_refcase.html#flownet.ert._create_synthetic_refcase.create_synthetic_refcase"><code class="docutils literal notranslate"><span class="pre">create_synthetic_refcase()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.ert._run_subprocess.html">flownet.ert._run_subprocess module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.ert._run_subprocess.html#flownet.ert._run_subprocess.run_ert_subprocess"><code class="docutils literal notranslate"><span class="pre">run_ert_subprocess()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.ert.html#module-flownet.ert">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.hyperparameter.html">flownet.hyperparameter package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.hyperparameter.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.hyperparameter._run_hyper.html">flownet.hyperparameter._run_hyper module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.hyperparameter._run_hyper.html#flownet.hyperparameter._run_hyper.flownet_ahm_run"><code class="docutils literal notranslate"><span class="pre">flownet_ahm_run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.hyperparameter._run_hyper.html#flownet.hyperparameter._run_hyper.run_flownet_hyperparameter"><code class="docutils literal notranslate"><span class="pre">run_flownet_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.hyperparameter.html#module-flownet.hyperparameter">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.network_model.html">flownet.network_model package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._create_egrid.html">flownet.network_model._create_egrid module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._create_egrid.html#flownet.network_model._create_egrid.construct_kw"><code class="docutils literal notranslate"><span class="pre">construct_kw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._create_egrid.html#flownet.network_model._create_egrid.create_egrid"><code class="docutils literal notranslate"><span class="pre">create_egrid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._generate_connections.html">flownet.network_model._generate_connections module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections.__get_entity_str"><code class="docutils literal notranslate"><span class="pre">__get_entity_str()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._check_for_none_connectivity_amongst_entities"><code class="docutils literal notranslate"><span class="pre">_check_for_none_connectivity_amongst_entities()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._create_entity_connection_matrix"><code class="docutils literal notranslate"><span class="pre">_create_entity_connection_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._create_record"><code class="docutils literal notranslate"><span class="pre">_create_record()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._generate_aquifer_connections"><code class="docutils literal notranslate"><span class="pre">_generate_aquifer_connections()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._generate_connections"><code class="docutils literal notranslate"><span class="pre">_generate_connections()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._is_angle_too_large"><code class="docutils literal notranslate"><span class="pre">_is_angle_too_large()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._remove_long_connections"><code class="docutils literal notranslate"><span class="pre">_remove_long_connections()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._remove_recorded_connections"><code class="docutils literal notranslate"><span class="pre">_remove_recorded_connections()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections._split_additional_flow_nodes"><code class="docutils literal notranslate"><span class="pre">_split_additional_flow_nodes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._generate_connections.html#flownet.network_model._generate_connections.create_connections"><code class="docutils literal notranslate"><span class="pre">create_connections()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._hull.html">flownet.network_model._hull module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._hull.html#flownet.network_model._hull.check_in_hull"><code class="docutils literal notranslate"><span class="pre">check_in_hull()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._mitchell.html">flownet.network_model._mitchell module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._mitchell.html#flownet.network_model._mitchell._generate_candidates"><code class="docutils literal notranslate"><span class="pre">_generate_candidates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._mitchell.html#flownet.network_model._mitchell.mitchell_best_candidate"><code class="docutils literal notranslate"><span class="pre">mitchell_best_candidate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._mitchell.html#flownet.network_model._mitchell.scale_convex_hull_perforations"><code class="docutils literal notranslate"><span class="pre">scale_convex_hull_perforations()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._network_model.html">flownet.network_model._network_model module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._network_model.html#flownet.network_model._network_model.NetworkModel"><code class="docutils literal notranslate"><span class="pre">NetworkModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html">flownet.network_model._one_dimensional_model module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.network_model._one_dimensional_model.html#flownet.network_model._one_dimensional_model.OneDimensionalModel"><code class="docutils literal notranslate"><span class="pre">OneDimensionalModel</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.network_model.html#module-flownet.network_model">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.parameters.html">flownet.parameters package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.parameters.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.parameters._aquifer.html">flownet.parameters._aquifer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._aquifer.html#flownet.parameters._aquifer.Aquifer"><code class="docutils literal notranslate"><span class="pre">Aquifer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.parameters._base_parameter.html">flownet.parameters._base_parameter module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._base_parameter.html#flownet.parameters._base_parameter.Parameter"><code class="docutils literal notranslate"><span class="pre">Parameter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._base_parameter.html#flownet.parameters._base_parameter.parameter_probability_distribution_class"><code class="docutils literal notranslate"><span class="pre">parameter_probability_distribution_class()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.parameters._equilibration.html">flownet.parameters._equilibration module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._equilibration.html#flownet.parameters._equilibration.Equilibration"><code class="docutils literal notranslate"><span class="pre">Equilibration</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.parameters._fault_transmissibility.html">flownet.parameters._fault_transmissibility module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._fault_transmissibility.html#flownet.parameters._fault_transmissibility.FaultTransmissibility"><code class="docutils literal notranslate"><span class="pre">FaultTransmissibility</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.parameters._permeability.html">flownet.parameters._permeability module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._permeability.html#flownet.parameters._permeability.Permeability"><code class="docutils literal notranslate"><span class="pre">Permeability</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.parameters._porv_poro_trans.html">flownet.parameters._porv_poro_trans module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._porv_poro_trans.html#flownet.parameters._porv_poro_trans.PorvPoroTrans"><code class="docutils literal notranslate"><span class="pre">PorvPoroTrans</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._porv_poro_trans.html#flownet.parameters._porv_poro_trans._transmissibility"><code class="docutils literal notranslate"><span class="pre">_transmissibility()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.parameters._relative_permeability.html">flownet.parameters._relative_permeability module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._relative_permeability.html#flownet.parameters._relative_permeability.RelativePermeability"><code class="docutils literal notranslate"><span class="pre">RelativePermeability</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._relative_permeability.html#flownet.parameters._relative_permeability.interpolate_go"><code class="docutils literal notranslate"><span class="pre">interpolate_go()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._relative_permeability.html#flownet.parameters._relative_permeability.interpolate_wo"><code class="docutils literal notranslate"><span class="pre">interpolate_wo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._relative_permeability.html#flownet.parameters._relative_permeability.sgof_from_parameters"><code class="docutils literal notranslate"><span class="pre">sgof_from_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._relative_permeability.html#flownet.parameters._relative_permeability.swof_from_parameters"><code class="docutils literal notranslate"><span class="pre">swof_from_parameters()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.parameters._rock_compressibility.html">flownet.parameters._rock_compressibility module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters._rock_compressibility.html#flownet.parameters._rock_compressibility.RockCompressibility"><code class="docutils literal notranslate"><span class="pre">RockCompressibility</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.parameters.probability_distributions.html">flownet.parameters.probability_distributions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters.probability_distributions.html#flownet.parameters.probability_distributions.Constant"><code class="docutils literal notranslate"><span class="pre">Constant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters.probability_distributions.html#flownet.parameters.probability_distributions.LogNormalDistribution"><code class="docutils literal notranslate"><span class="pre">LogNormalDistribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters.probability_distributions.html#flownet.parameters.probability_distributions.LogUniformDistribution"><code class="docutils literal notranslate"><span class="pre">LogUniformDistribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters.probability_distributions.html#flownet.parameters.probability_distributions.NormalDistribution"><code class="docutils literal notranslate"><span class="pre">NormalDistribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters.probability_distributions.html#flownet.parameters.probability_distributions.ProbabilityDistribution"><code class="docutils literal notranslate"><span class="pre">ProbabilityDistribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters.probability_distributions.html#flownet.parameters.probability_distributions.TriangularDistribution"><code class="docutils literal notranslate"><span class="pre">TriangularDistribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters.probability_distributions.html#flownet.parameters.probability_distributions.TruncatedNormalDistribution"><code class="docutils literal notranslate"><span class="pre">TruncatedNormalDistribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.parameters.probability_distributions.html#flownet.parameters.probability_distributions.UniformDistribution"><code class="docutils literal notranslate"><span class="pre">UniformDistribution</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.parameters.html#module-flownet.parameters">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.prediction.html">flownet.prediction package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.prediction.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.prediction._run_pred.html">flownet.prediction._run_pred module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.prediction._run_pred.html#flownet.prediction._run_pred.run_flownet_prediction"><code class="docutils literal notranslate"><span class="pre">run_flownet_prediction()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.prediction.html#module-flownet.prediction">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.realization.html">flownet.realization package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.realization.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.realization._schedule.html">flownet.realization._schedule module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.realization._schedule.html#flownet.realization._schedule.Schedule"><code class="docutils literal notranslate"><span class="pre">Schedule</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.realization._simulation_keywords.html">flownet.realization._simulation_keywords module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.realization._simulation_keywords.html#flownet.realization._simulation_keywords.COMPDAT"><code class="docutils literal notranslate"><span class="pre">COMPDAT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.realization._simulation_keywords.html#flownet.realization._simulation_keywords.DATES"><code class="docutils literal notranslate"><span class="pre">DATES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.realization._simulation_keywords.html#flownet.realization._simulation_keywords.Keyword"><code class="docutils literal notranslate"><span class="pre">Keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.realization._simulation_keywords.html#flownet.realization._simulation_keywords.WCONHIST"><code class="docutils literal notranslate"><span class="pre">WCONHIST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.realization._simulation_keywords.html#flownet.realization._simulation_keywords.WCONINJH"><code class="docutils literal notranslate"><span class="pre">WCONINJH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.realization._simulation_keywords.html#flownet.realization._simulation_keywords.WELSPECS"><code class="docutils literal notranslate"><span class="pre">WELSPECS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.realization._simulation_keywords.html#flownet.realization._simulation_keywords.WSALT"><code class="docutils literal notranslate"><span class="pre">WSALT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.realization._simulation_keywords.html#flownet.realization._simulation_keywords.WTEMP"><code class="docutils literal notranslate"><span class="pre">WTEMP</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.realization._simulation_realization.html">flownet.realization._simulation_realization module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.realization._simulation_realization.html#flownet.realization._simulation_realization.SimulationRealization"><code class="docutils literal notranslate"><span class="pre">SimulationRealization</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.realization.html#module-flownet.realization">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flownet.utils.html">flownet.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet.utils.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flownet.utils.constants.html">flownet.utils.constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.utils.kriging.html">flownet.utils.kriging module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.kriging.html#flownet.utils.kriging.execute"><code class="docutils literal notranslate"><span class="pre">execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.utils.observations.html">flownet.utils.observations module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.observations.html#flownet.utils.observations._read_ert_obs"><code class="docutils literal notranslate"><span class="pre">_read_ert_obs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.observations.html#flownet.utils.observations._read_yaml_obs"><code class="docutils literal notranslate"><span class="pre">_read_yaml_obs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.utils.plot_results.html">flownet.utils.plot_results module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.plot_results.html#flownet.utils.plot_results.build_ensemble_df_list"><code class="docutils literal notranslate"><span class="pre">build_ensemble_df_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.plot_results.html#flownet.utils.plot_results.check_args"><code class="docutils literal notranslate"><span class="pre">check_args()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.plot_results.html#flownet.utils.plot_results.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.plot_results.html#flownet.utils.plot_results.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.plot_results.html#flownet.utils.plot_results.plot_ensembles"><code class="docutils literal notranslate"><span class="pre">plot_ensembles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.plot_results.html#flownet.utils.plot_results.remove_duplicates"><code class="docutils literal notranslate"><span class="pre">remove_duplicates()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.utils.raytracing.html">flownet.utils.raytracing module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.raytracing.html#flownet.utils.raytracing.moller_trumbore"><code class="docutils literal notranslate"><span class="pre">moller_trumbore()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.utils.types.html">flownet.utils.types module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flownet.utils.write_grdecl_file.html">flownet.utils.write_grdecl_file module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flownet.utils.write_grdecl_file.html#flownet.utils.write_grdecl_file.write_grdecl_file"><code class="docutils literal notranslate"><span class="pre">write_grdecl_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flownet.utils.html#module-flownet.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flownet._command_line.html">flownet._command_line module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flownet._command_line.html#flownet._command_line.create_webviz"><code class="docutils literal notranslate"><span class="pre">create_webviz()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet._command_line.html#flownet._command_line.flownet_ahm"><code class="docutils literal notranslate"><span class="pre">flownet_ahm()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet._command_line.html#flownet._command_line.flownet_hyperparam"><code class="docutils literal notranslate"><span class="pre">flownet_hyperparam()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet._command_line.html#flownet._command_line.flownet_pred"><code class="docutils literal notranslate"><span class="pre">flownet_pred()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flownet._command_line.html#flownet._command_line.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-flownet">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flownet" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Equinor.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

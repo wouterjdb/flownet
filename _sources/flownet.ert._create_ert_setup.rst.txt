@@ -1,0 +1,8 @@
+flownet.ert.\_create\_ert\_setup module
+=======================================
+
+.. automodule:: flownet.ert._create_ert_setup
+   :members:
+   :private-members:
+   :show-inheritance:
+   :undoc-members:
