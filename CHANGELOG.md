@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## Unreleased
 
 ### Added
+- Optional `ert.localization` (`enabled`, `correlation_threshold`) and `ert.auto_scale` configuration entries, enabling ERT adaptive localization and automatic observation uncertainty scaling in the update step. Both are off by default.
 - [#434](https://github.com/equinor/flownet/pull/434) Added functionality to to export FlowNet predictions to CSV file. New `export` entry in prediction configuration file.
 
 
