@@ -64,14 +64,23 @@ def create_webviz(output_folder: pathlib.Path, start_webviz: bool = True):
             check=True,
         )
 
-    # The generated Webviz app has no __main__ guard, so child processes must be
-    # forked: the "forkserver" default of Python 3.14 re-imports the app and fails.
+    # Webviz runs the generated app (copy_data.py) in a fresh interpreter without a
+    # __main__ guard. Python 3.14 defaults to "forkserver", which re-imports that
+    # script in worker processes and crashes, so run it with the "fork" start method.
     webviz_main = (
-        "import multiprocessing, sys; "
-        "multiprocessing.set_start_method('fork'); "
-        "from webviz_config.command_line import main; "
-        "sys.argv[0] = 'webviz'; "
-        "main()"
+        "import subprocess, sys\n"
+        "_call = subprocess.call\n"
+        "def call(cmd, *args, **kwargs):\n"
+        "    if list(cmd[1:]) == ['copy_data.py']:\n"
+        "        cmd = [cmd[0], '-c', "
+        "'import multiprocessing, runpy; "
+        'multiprocessing.set_start_method("fork"); '
+        'runpy.run_path("copy_data.py", run_name="__main__")\']\n'
+        "    return _call(cmd, *args, **kwargs)\n"
+        "subprocess.call = call\n"
+        "from webviz_config.command_line import main\n"
+        "sys.argv[0] = 'webviz'\n"
+        "main()\n"
     )
 
     subprocess.run(

@@ -467,7 +467,13 @@ def save_iteration_analytics():
         df_metrics = pd.concat(
             [
                 df_metrics,
-                compute_metric_ensemble(obs_opm, ens_flownet, metrics, key, iteration),
+                pd.DataFrame(
+                    [
+                        compute_metric_ensemble(
+                            obs_opm, ens_flownet, metrics, key, iteration
+                        )
+                    ]
+                ),
             ],
             ignore_index=True,
         )
