@@ -138,9 +138,33 @@ jobs:
           Path("ci_config/ci_prediction.yml").write_text(
               yaml.safe_dump(prediction, sort_keys=False), encoding="utf8"
           )
+
+          ahm_update = {
+            "flownet": {
+              "additional_flow_nodes": [20, 40],
+              "additional_node_candidates": 100,
+              "max_distance_fraction": 0.05,
+              "constraining": {"kriging": {"enabled": False}},
+            },
+            "ert": {
+              "realizations": {
+                "num_realizations": 2,
+                "required_success_percent": 40,
+                "max_runtime": 180,
+              },
+              "queue": {"max_running": 2},
+              "ensemble_weights": [1],
+            },
+            "model_parameters": {
+              "relative_permeability": {"scheme": "global"}
+            },
+          }
+          Path("ci_config/ci_assisted_history_matching.yml").write_text(
+            yaml.safe_dump(ahm_update, sort_keys=False), encoding="utf8"
+          )
           PY
-          flownet ahm ./config/ci_assisted_history_matching.yml ./ci_ahm_run --update-config ./ci_config/assisted_history_matching.yml
-          flownet ahm ./config/ci_assisted_history_matching.yml ./ci_ahm_restart --update-config ./ci_config/assisted_history_matching.yml --restart-folder ./ci_ahm_run
+          flownet ahm ./config/ci_assisted_history_matching.yml ./ci_ahm_run --update-config ./ci_config/ci_assisted_history_matching.yml
+          flownet ahm ./config/ci_assisted_history_matching.yml ./ci_ahm_restart --update-config ./ci_config/ci_assisted_history_matching.yml --restart-folder ./ci_ahm_run
           flownet pred ./config/prediction.yml ./ci_pred_run ./ci_ahm_run --update-config ./ci_config/ci_prediction.yml
 
       - name: 📚 Build documentation

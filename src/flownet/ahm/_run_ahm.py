@@ -98,7 +98,7 @@ def _from_regions_to_flow_tubes(
     tube_outside = []
     for i in network.grid.model.unique():
         tube_regions = []
-        for j in ti2ci[ti2ci.index == i].values:
+        for j in ti2ci[ti2ci.index == i].to_numpy().ravel():
             ijk = field_data.grid.find_cell(xyz_mid[0][j], xyz_mid[1][j], xyz_mid[2][j])
             if ijk is not None and field_data.grid.active(ijk=ijk):
                 tube_regions.append(field_data.init(region_name)[ijk])
