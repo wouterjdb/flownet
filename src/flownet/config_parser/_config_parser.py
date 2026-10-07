@@ -680,6 +680,36 @@ def create_schema(config_folder: Optional[pathlib.Path] = None) -> Dict:
                         MK.Type: types.List,
                         MK.Content: {MK.Item: {MK.Type: types.Number}},
                     },
+                    "localization": {
+                        MK.Type: types.NamedDict,
+                        MK.Description: "Adaptive localization in the ERT update "
+                        "step. Reduces spurious correlations between parameters "
+                        "and observations when using a small ensemble.",
+                        MK.Content: {
+                            "enabled": {
+                                MK.Type: types.Bool,
+                                MK.Default: False,
+                                MK.Description: "Enable adaptive localization.",
+                            },
+                            "correlation_threshold": {
+                                MK.Type: types.Number,
+                                MK.AllowNone: True,
+                                MK.Default: None,
+                                MK.Description: "Custom correlation threshold "
+                                "(between 0 and 1). If not given, ERT picks a "
+                                "default based on the ensemble size.",
+                            },
+                        },
+                    },
+                    "auto_scale": {
+                        MK.Type: types.List,
+                        MK.Description: "Observation groups for which ERT "
+                        "automatically scales the observation uncertainties to "
+                        "account for correlated observations. Each item is a "
+                        "comma separated list of observation keys (wildcards "
+                        "allowed), e.g. 'WOPR_*' or 'FOPR,FWPR'.",
+                        MK.Content: {MK.Item: {MK.Type: types.String}},
+                    },
                     "yamlobs": {
                         MK.Type: types.String,
                         MK.Default: "./observations.yamlobs",
@@ -2290,6 +2320,13 @@ def parse_config(
         raise ValueError(
             f"The hyperopt mode '{config.flownet.hyperopt.mode}' is not valid."
             "Valid options are ('random', 'tpe', 'adaptive_tpe')."
+        )
+
+    threshold = config.ert.localization.correlation_threshold
+    if threshold is not None and not 0 <= threshold <= 1:
+        raise ValueError(
+            "ert.localization.correlation_threshold should be between 0 and 1, "
+            f"got {threshold}."
         )
 
     for key in config.flownet.hyperopt.loss.keys:
