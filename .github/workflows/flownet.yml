@@ -36,12 +36,14 @@ jobs:
       PYTHONWARNINGS: default
     steps:
       - name: 📖 Checkout commit locally
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 🐍 Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: setup.py
 
       - name: 🧪 Create virtual environment
         run: |
@@ -189,10 +191,18 @@ jobs:
           cp -R ./docs/_build ../_build
           git config --local user.email "flownet-github-action"
           git config --local user.name "flownet-github-action"
-          git fetch origin gh-pages
-          git checkout --track origin/gh-pages
+          if git ls-remote --exit-code --heads origin gh-pages; then
+            git fetch origin gh-pages
+            git checkout --track origin/gh-pages
+          else
+            status=$?
+            if [ "$status" -ne 2 ]; then
+              exit "$status"
+            fi
+            git checkout --orphan gh-pages
+          fi
           git clean -f -f -d -x
-          git rm -r *
+          git rm -rf --ignore-unmatch .
 
           cp -R ../_build/html/* .
           git add .

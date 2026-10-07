@@ -666,7 +666,7 @@ def run_flownet_history_matching(
     satnum_max = field_data.init("SATNUM").get_max()  # type: ignore
 
     # Create a pandas dataframe with all parameter definition for each individual tube
-    relperm_dist_values = pd.DataFrame(columns=column_names_probdist + ["satnum"])
+    relperm_dist_frames: List[pd.DataFrame] = []
 
     relperm_parameters = config.model_parameters.relative_permeability.regions[
         0
@@ -683,11 +683,8 @@ def run_flownet_history_matching(
 
     relperm_parameters = relperm_dict
 
-    relperm_interp_values: Optional[pd.DataFrame] = (
-        pd.DataFrame(columns=list(relperm_parameters.keys()) + ["CASE", "SATNUM"])
-        if config.model_parameters.relative_permeability.interpolate
-        else None
-    )
+    relperm_interp_columns = list(relperm_parameters.keys()) + ["CASE", "SATNUM"]
+    relperm_interp_frames: List[pd.DataFrame] = []
 
     defined_satnum_regions = []
     if config.model_parameters.relative_permeability.scheme == "regions_from_sim":
@@ -761,27 +758,32 @@ def run_flownet_history_matching(
                 )
             info.append([i] * len(relperm_parameters))
 
-        if isinstance(relperm_interp_values, pd.DataFrame):
-            relperm_interp_values = pd.concat(
-                [
-                    relperm_interp_values,
-                    pd.DataFrame(
-                        list(map(list, interp_info)),
-                        columns=list(relperm_parameters.keys()) + ["CASE", "SATNUM"],
-                    ),
-                ],
-                ignore_index=True,
+        if config.model_parameters.relative_permeability.interpolate:
+            relperm_interp_frames.append(
+                pd.DataFrame(
+                    list(map(list, interp_info)),
+                    columns=relperm_interp_columns,
+                )
             )
 
-        relperm_dist_values = pd.concat(
-            [
-                relperm_dist_values,
-                pd.DataFrame(
-                    list(map(list, zip(*info))),
-                    columns=column_names_probdist + ["satnum"],
-                ),
-            ],
-            ignore_index=True,
+        relperm_dist_frames.append(
+            pd.DataFrame(
+                list(map(list, zip(*info))),
+                columns=column_names_probdist + ["satnum"],
+            )
+        )
+
+    relperm_dist_values = (
+        pd.concat(relperm_dist_frames, ignore_index=True)
+        if relperm_dist_frames
+        else pd.DataFrame(columns=column_names_probdist + ["satnum"])
+    )
+    relperm_interp_values: Optional[pd.DataFrame] = None
+    if config.model_parameters.relative_permeability.interpolate:
+        relperm_interp_values = (
+            pd.concat(relperm_interp_frames, ignore_index=True)
+            if relperm_interp_frames
+            else pd.DataFrame(columns=relperm_interp_columns)
         )
 
     #########################################

@@ -246,8 +246,8 @@ class FlowData(FromSource):
                 df.loc[df["WWIR"] > 0, "TYPE"] = "WI"
                 df.loc[df["WGIR"] > 0, "TYPE"] = "GI"
                 # make sure the correct well type is set also when the well is shut in
-                df[["PHASE", "TYPE"]] = df[["PHASE", "TYPE"]].fillna(method="backfill")
-                df[["PHASE", "TYPE"]] = df[["PHASE", "TYPE"]].fillna(method="ffill")
+                df[["PHASE", "TYPE"]] = df[["PHASE", "TYPE"]].bfill()
+                df[["PHASE", "TYPE"]] = df[["PHASE", "TYPE"]].ffill()
 
                 production_dataframes.append(df)
 
@@ -281,10 +281,10 @@ class FlowData(FromSource):
         # ensure that a type is assigned also if a well is never activated
         df_production_data[["PHASE", "TYPE"]] = df_production_data[
             ["PHASE", "TYPE"]
-        ].fillna(method="backfill")
+        ].bfill()
         df_production_data[["PHASE", "TYPE"]] = df_production_data[
             ["PHASE", "TYPE"]
-        ].fillna(method="ffill")
+        ].ffill()
 
         df_production_data["date"] = df_production_data.index
         df_production_data["date"] = pd.to_datetime(df_production_data["date"]).dt.date
@@ -495,13 +495,16 @@ class FlowData(FromSource):
 
             # Determine nearest flow tube cell for each cell in the original model
             tree = KDTree(flownet_cell_midpoints[flownet_indices, :])
-            _, matched_indices = tree.query(model_cell_mid_points[model_indices], k=[1])
+            _, matched_indices = tree.query(
+                model_cell_mid_points[model_indices], k=1, workers=-1
+            )
 
             # Assign each reservoir model volume to a flow tube
-            for idx, val in enumerate(matched_indices):
-                tube_cell_volumes[flownet_indices[val[0]]] += model_cell_volume[
-                    model_indices[idx]
-                ]
+            np.add.at(
+                tube_cell_volumes,
+                np.asarray(flownet_indices)[matched_indices],
+                np.asarray(model_cell_volume)[model_indices],
+            )
 
             # Compute the total volumes per tube section between the current depth levels
             properties_per_cell["distributed_volume"] = tube_cell_volumes
