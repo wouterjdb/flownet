@@ -519,6 +519,31 @@ ensemble_weights
 
 A list with weights assigned to the iteration in the ES MDA algorithm.
 
+localization
+------------
+
+Optional adaptive localization in the ERT update step (default: disabled). Useful to reduce
+spurious correlations between parameters and observations with a small ensemble.
+
+enabled
+~~~~~~~
+
+Set to *true* to enable adaptive localization (default *false*).
+
+correlation_threshold
+~~~~~~~~~~~~~~~~~~~~~
+
+Optional custom correlation threshold between 0 and 1. If not given, ERT chooses a default based on the ensemble size.
+Only used when localization is enabled.
+
+
+auto_scale
+----------
+
+Optional list of observation groups for which ERT automatically scales the observation uncertainties to account for
+correlated observations. Each item is a comma separated list of observation keys, wildcards are allowed
+(e.g. *WOPR_\**). Default: no scaling.
+
 yamlobs
 -------
 

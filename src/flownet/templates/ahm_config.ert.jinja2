@@ -34,4 +34,15 @@ SIMULATION_JOB DELETE_IN_CURRENT_ITERATION <ECLBASE>
 
 OBS_CONFIG ./observations_training.ertobs
 
+{%- if config.ert.localization.enabled %}
+
+ANALYSIS_SET_VAR STD_ENKF LOCALIZATION TRUE
+{%- if config.ert.localization.correlation_threshold is not none %}
+ANALYSIS_SET_VAR STD_ENKF LOCALIZATION_CORRELATION_THRESHOLD {{ config.ert.localization.correlation_threshold }}
+{%- endif %}
+{%- endif %}
+{%- for group in config.ert.auto_scale %}
+ANALYSIS_SET_VAR OBSERVATIONS AUTO_SCALE {{ group }}
+{%- endfor %}
+
 SUMMARY FOPT
